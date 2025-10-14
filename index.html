@@ -20,13 +20,13 @@
 
         /* Header */
         .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
+            background: transparent;
+            backdrop-filter: none;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: none;
         }
 
         .nav {
@@ -41,7 +41,7 @@
         .logo {
             font-size: 1.875rem;
             font-weight: 600;
-            color: #1d1d1f;
+            color: white;
             text-decoration: none;
         }
 
@@ -53,7 +53,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #1d1d1f;
+            color: white;
             font-weight: 400;
             transition: color 0.3s ease;
             font-size: 1.25rem;
@@ -80,7 +80,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
                         url('https://images.squarespace-cdn.com/content/v1/687ebde8c8b02f7b1e531535/629d3d3b-5a50-48fe-bd13-f1d6354b161d/aurora-colorado-apartments-16.jpg') center/cover;
             height: 100vh;
             display: flex;
@@ -360,7 +360,7 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.95);
+            background: transparent;
             border: none;
             width: 48px;
             height: 48px;
@@ -411,7 +411,7 @@
 
         .carousel-arrow:disabled:hover {
             transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.95);
+            background: transparent;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
@@ -760,7 +760,7 @@
 
         .modal-header {
             padding: 1.5rem;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: none;
         }
 
         .modal-header h3 {
