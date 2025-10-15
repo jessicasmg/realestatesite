@@ -78,6 +78,43 @@
             transform: translateY(-1px);
         }
 
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('aurora-colorado-living-large14.jpg') center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            padding-top: 15vh;
+            padding-bottom: 15vh;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 1100px;
+            padding: 4rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4.18rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            letter-spacing: -0.03em;
+            line-height: 1.2em;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 1.76rem;
+            margin-bottom: 4.5rem;
+            opacity: 0.9;
+            line-height: 1.4em;
+            letter-spacing: -0.01em;
+        }
+
         .content {
             max-width: 1200px;
             margin: 100px auto 50px;
@@ -107,9 +144,15 @@
         </nav>
     </header>
 
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Why Choose Aurora for Your Next Home</h1>
+            <p>Aurora is Colorado's third-largest city and <mark style="background-color: #FFDF45; padding: 0 0.2em;">one of the most welcoming, diverse communities in the state.</mark> Located just east of Denver, Aurora offers the energy of city life with easy access to Colorado's beautiful natural landscapes.</p>
+        </div>
+    </section>
+
     <main class="content">
-        <h1>Aurora</h1>
-        <!-- Content will go here -->
+        <!-- Additional sections will go here -->
     </main>
 </body>
 </html>
