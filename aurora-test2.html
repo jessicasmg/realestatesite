@@ -159,10 +159,86 @@
             border-radius: 16px;
         }
 
+        .dual-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .dual-image-item {
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 16px;
+        }
+
+        .captioned-image {
+            margin: 3rem 0;
+        }
+
+        .caption-image {
+            width: 100%;
+            height: 450px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+        }
+
+        .image-caption {
+            font-size: 1rem;
+            color: #86868b;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .triple-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .triple-image-item {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+        }
+
+        .asymmetric-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .asymmetric-large {
+            height: 500px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 16px;
+        }
+
+        .asymmetric-small-stack {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .asymmetric-small {
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+        }
+
         @media (max-width: 968px) {
-            .split-content {
+            .split-content,
+            .dual-images,
+            .triple-images,
+            .asymmetric-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
             }
 
             .section-header {
@@ -177,11 +253,15 @@
                 flex-direction: column;
                 gap: 2rem;
             }
+
+            .asymmetric-small-stack {
+                grid-template-rows: auto;
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Intro Section -->
     <section class="full-width-section">
         <div class="container">
             <h2 class="section-header">A Community for Everyone</h2>
@@ -191,13 +271,23 @@
                 Over 160 languages are spoken in Aurora schools, and the city is recognized as a majority-minority city where different backgrounds are celebrated.
             </div>
 
+            <div class="triple-images">
+                <div class="triple-image-item" style="background-image: url('aurora-photos-medium-5.jpg');"></div>
+                <div class="triple-image-item" style="background-image: url('aurora-photos-medium-8.jpg');"></div>
+                <div class="triple-image-item" style="background-image: url('aurora-photos-medium-12.jpg');"></div>
+            </div>
+
             <p class="body-text">This rich cultural mix is reflected in everything from the more than 250 ethnic eateries representing cuisines from around the world to community events and neighborhood life. The city's cultural scene includes venues like the Aurora Fox Arts Center and the Vintage Theatre offering live performances year-round.</p>
+            
+            <div class="captioned-image">
+                <div class="caption-image" style="background-image: url('aurora-photos-large-1.jpg');"></div>
+                <p class="image-caption">Stanley Marketplace - a vibrant community hub in Aurora</p>
+            </div>
             
             <p class="body-text">For newcomers to the United States or anyone looking for a place where diversity is a strength, Aurora offers a genuine sense of belonging.</p>
         </div>
     </section>
 
-    <!-- Affordable Living -->
     <section class="full-width-section section-light">
         <div class="container">
             <div class="split-content">
@@ -206,12 +296,16 @@
                     <p class="body-text">Aurora provides a more affordable alternative to Denver while keeping you close to everything the metro area has to offer. Rental prices in Aurora consistently run lower than in Denver and the surrounding metro area, making it an appealing choice for people who want access to urban amenities without the premium price tag.</p>
                     <p class="body-text">Whether you're working in Denver, Aurora, or elsewhere in the metro area, Aurora's central location makes commuting manageable. The city is easily accessible via I-225 and the RTD light rail system, with proximity to Denver International Airport and downtown Denver attractions.</p>
                 </div>
-                <div class="side-image" style="background-image: url('aurora-colorado-living-large26.jpg');"></div>
+                <div class="side-image" style="background-image: url('aurora-photos-large-10.jpg');"></div>
+            </div>
+
+            <div class="dual-images">
+                <div class="dual-image-item" style="background-image: url('aurora-photos-medium-13.jpg');"></div>
+                <div class="dual-image-item" style="background-image: url('aurora-photos-medium-17.jpg');"></div>
             </div>
         </div>
     </section>
 
-    <!-- Schools Green Section -->
     <section class="full-width-section section-green">
         <div class="container">
             <h2 class="section-header">Strong Schools and Family Resources</h2>
@@ -239,12 +333,17 @@
         </div>
     </section>
 
-    <!-- Active Lifestyle -->
     <section class="full-width-section">
         <div class="container">
             <h2 class="section-header">Stay Active Year-Round</h2>
             
-            <div class="image-full" style="background-image: url('aurora-colorado-living-large14.jpg');"></div>
+            <div class="asymmetric-grid">
+                <div class="asymmetric-large" style="background-image: url('aurora-photos-large-21.jpg');"></div>
+                <div class="asymmetric-small-stack">
+                    <div class="asymmetric-small" style="background-image: url('aurora-photos-medium-22.jpg');"></div>
+                    <div class="asymmetric-small" style="background-image: url('aurora-photos-medium-6.jpg');"></div>
+                </div>
+            </div>
 
             <p class="body-text">Living in Aurora means you're close to the Colorado lifestyle everyone talks about. The mountains are just a short drive away, offering hiking and mountain biking in the warmer months and skiing and snowboarding in the winter.</p>
 
@@ -252,18 +351,30 @@
                 Aurora manages over 100 parks and more than 5,000 acres of open space.
             </div>
 
+            <div class="triple-images">
+                <div class="triple-image-item" style="background-image: url('aurora-photos-medium-7.jpg');"></div>
+                <div class="triple-image-item" style="background-image: url('aurora-photos-medium-16.jpg');"></div>
+                <div class="triple-image-item" style="background-image: url('aurora-photos-medium-18.jpg');"></div>
+            </div>
+
             <p class="body-text">Cherry Creek State Park and the Aurora Reservoir offer miles of trails, picnic areas, boating, and paddleboarding opportunities. Residents can also enjoy six public golf courses, hiking and biking trails, horseback riding, and camping throughout the area.</p>
+            
+            <div class="image-full" style="background-image: url('aurora-photos-large-14.jpg');"></div>
             
             <p class="body-text">Within Aurora, you'll find rock climbing gyms, cycling facilities, and recreational programs for all ages and skill levels.</p>
         </div>
     </section>
 
-    <!-- Economy -->
     <section class="full-width-section section-light">
         <div class="container">
             <h2 class="section-header">A Growing Economy</h2>
             
             <p class="body-text">Aurora's economy is strong and diverse, with a 3.3% unemployment rate significantly below the 3.7% national average. The city continues to grow, bringing new businesses and jobs across healthcare, education, retail, technology, aerospace, and defense sectors.</p>
+
+            <div class="dual-images">
+                <div class="dual-image-item" style="background-image: url('aurora-photos-medium-9.jpg');"></div>
+                <div class="dual-image-item" style="background-image: url('aurora-photos-medium-19.jpg');"></div>
+            </div>
 
             <ul class="icon-list">
                 <li><span class="icon">🏥</span><span><strong>Anschutz Medical Campus</strong> - The region's largest academic medical center</span></li>
@@ -275,18 +386,16 @@
         </div>
     </section>
 
-    <!-- Quote/Testimonial Style -->
     <section class="quote-section">
         <div class="container">
             "Aurora offers the perfect blend of urban amenities, natural beauty, a strong job market, excellent schools, and affordable living options."
         </div>
     </section>
 
-    <!-- Why We Love Aurora -->
     <section class="full-width-section">
         <div class="container">
             <div class="split-content">
-                <div class="side-image" style="background-image: url('aurora-colorado-living-small-6.jpg');"></div>
+                <div class="side-image" style="background-image: url('aurora-photos-large-20.jpg');"></div>
                 <div>
                     <h2 class="section-header section-header-left">Why We Love Calling Aurora Home</h2>
                     <p class="body-text">At SMG Property, we've been part of the Aurora community for over a decade.</p>
@@ -294,6 +403,11 @@
                     <p class="body-text">If you're considering a move to Aurora, we think you'll find what so many of our residents have found: a place where you can build the life you're working toward.</p>
                     <p class="body-text">If you're looking for an apartment in Aurora, we'd be happy to help you find one that fits your needs.</p>
                 </div>
+            </div>
+
+            <div class="captioned-image">
+                <div class="caption-image" style="background-image: url('aurora-photos-large-23.jpg');"></div>
+                <p class="image-caption">Aurora's preserved open spaces and natural beauty</p>
             </div>
         </div>
     </section>
