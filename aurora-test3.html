@@ -256,13 +256,68 @@
             line-height: 1.6;
         }
 
+        /* New: Mosaic Grid */
+        .mosaic-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: 300px 300px;
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .mosaic-large {
+            grid-row: span 2;
+            background-size: cover;
+            background-position: center;
+            border-radius: 16px;
+        }
+
+        .mosaic-small {
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+        }
+
+        /* New: Full Width Hero Image */
+        .hero-image-section {
+            width: 100%;
+            height: 600px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin: 4rem 0;
+        }
+
+        .hero-image-overlay {
+            background: rgba(32, 110, 45, 0.85);
+            padding: 3rem;
+            border-radius: 16px;
+            max-width: 700px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-image-text {
+            font-size: 1.8rem;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
         @media (max-width: 968px) {
             .image-grid-2,
             .image-grid-3,
             .split-layout,
             .split-layout-reverse,
-            .feature-cards {
+            .feature-cards,
+            .mosaic-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .mosaic-large {
+                grid-row: span 1;
             }
 
             .stats-row {
@@ -295,10 +350,10 @@
         <div class="container">
             <p class="body-text">About 1 in 5 residents were born outside the United States, and the city is home to thriving communities from more than 130 countries, with over 160 languages spoken in schools. <span class="highlight">Aurora is recognized as a majority-minority city where different backgrounds are celebrated.</span></p>
             
-            <div class="image-grid-3">
-                <div class="grid-image" style="background-image: url('aurora-photos-medium-1.jpg');"></div>
-                <div class="grid-image" style="background-image: url('aurora-photos-medium-2.jpg');"></div>
-                <div class="grid-image" style="background-image: url('aurora-photos-medium-5.jpg');"></div>
+            <div class="mosaic-grid">
+                <div class="mosaic-large" style="background-image: url('aurora-photos-large-2.jpg');"></div>
+                <div class="mosaic-small" style="background-image: url('aurora-photos-medium-3.jpg');"></div>
+                <div class="mosaic-small" style="background-image: url('aurora-photos-medium-12.jpg');"></div>
             </div>
 
             <p class="body-text">This rich cultural mix is reflected in everything from the more than 250 ethnic eateries representing cuisines from around the world to community events and neighborhood life. The city's cultural scene includes venues like the Aurora Fox Arts Center and the Vintage Theatre offering live performances year-round.</p>
@@ -317,6 +372,11 @@
                     <p class="body-text">Whether you're working in Denver, Aurora, or elsewhere in the metro area, <span class="highlight">Aurora's central location makes commuting manageable.</span> The city is easily accessible via I-225 and the RTD light rail system, with proximity to Denver International Airport and downtown Denver attractions.</p>
                 </div>
                 <div class="split-image" style="background-image: url('aurora-photos-large-10.jpg');"></div>
+            </div>
+
+            <div class="image-grid-2">
+                <div class="grid-image" style="background-image: url('aurora-photos-medium-4.jpg');"></div>
+                <div class="grid-image" style="background-image: url('aurora-photos-medium-15.jpg');"></div>
             </div>
         </div>
     </section>
@@ -361,17 +421,23 @@
             <div class="image-grid-2">
                 <div class="grid-image grid-image-tall" style="background-image: url('aurora-photos-medium-21.jpg');"></div>
                 <div>
-                    <div class="grid-image grid-image-short" style="background-image: url('aurora-photos-medium-7.jpg'); margin-bottom: 2rem;"></div>
+                    <div class="grid-image grid-image-short" style="background-image: url('aurora-photos-medium-11.jpg'); margin-bottom: 2rem;"></div>
                     <div class="grid-image grid-image-short" style="background-image: url('aurora-photos-medium-22.jpg');"></div>
                 </div>
             </div>
 
             <p class="body-text"><span class="highlight">Within the city itself, Aurora manages over 100 parks and more than 5,000 acres of open space.</span> Cherry Creek State Park and the Aurora Reservoir offer miles of trails, picnic areas, boating, and paddleboarding opportunities.</p>
 
+            <div class="hero-image-section" style="background-image: url('aurora-photos-large-7.jpg');">
+                <div class="hero-image-overlay">
+                    <p class="hero-image-text">Miles of scenic trails wind through Aurora's parks and open spaces, connecting neighborhoods to nature.</p>
+                </div>
+            </div>
+
             <div class="image-grid-3">
                 <div class="grid-image" style="background-image: url('aurora-photos-medium-16.jpg');"></div>
-                <div class="grid-image" style="background-image: url('aurora-photos-medium-14.jpg');"></div>
                 <div class="grid-image" style="background-image: url('aurora-photos-medium-18.jpg');"></div>
+                <div class="grid-image" style="background-image: url('aurora-photos-medium-19.jpg');"></div>
             </div>
             
             <p class="body-text">Residents can also enjoy six public golf courses, hiking and biking trails, horseback riding, and camping throughout the area. Within Aurora, you'll find rock climbing gyms, cycling facilities, and recreational programs for all ages and skill levels.</p>
@@ -430,7 +496,13 @@
                     <p class="body-text">If you're considering a move to Aurora, we think you'll find what so many of our residents have found: a place where you can build the life you're working toward.</p>
                     <p class="body-text"><span class="highlight">If you're looking for an apartment in Aurora, we'd be happy to help you find one that fits your needs.</span></p>
                 </div>
-                <div class="split-image" style="background-image: url('aurora-photos-large-17.jpg');"></div>
+                <div class="split-image" style="background-image: url('aurora-photos-large-20.jpg');"></div>
+            </div>
+
+            <div class="image-grid-3">
+                <div class="grid-image" style="background-image: url('aurora-photos-medium-6.jpg');"></div>
+                <div class="grid-image" style="background-image: url('aurora-photos-medium-23.jpg');"></div>
+                <div class="grid-image" style="background-image: url('aurora-photos-medium-17.jpg');"></div>
             </div>
         </div>
     </section>
