@@ -18,38 +18,233 @@
             background: #ffffff;
         }
 
+        .section {
+            padding: 5rem 2rem;
+        }
+
+        .section-alt {
+            background: #f5f5f7;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 4rem 2rem;
         }
 
-        h1 {
+        .section-header {
             font-size: 3rem;
             font-weight: 700;
+            color: #206E2D;
             margin-bottom: 2rem;
-            color: #206E2D;
+            letter-spacing: -0.02em;
         }
 
-        h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: #206E2D;
-        }
-
-        p {
-            font-size: 1.2rem;
+        .section-text {
+            font-size: 1.3rem;
             line-height: 1.6;
             margin-bottom: 1.5rem;
             color: #1d1d1f;
         }
+
+        .highlight-yellow {
+            background-color: #FFDF45;
+            padding: 0 0.3em;
+            font-weight: 600;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .image-container {
+            width: 100%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #206E2D;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #86868b;
+        }
+
+        .callout-box {
+            background: #206E2D;
+            color: white;
+            padding: 3rem;
+            border-radius: 16px;
+            margin: 3rem 0;
+        }
+
+        .callout-box h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .callout-box p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: white;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .feature-list li {
+            font-size: 1.2rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            color: #206E2D;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Aurora Test Page</h1>
-        <p>This is your experimental canvas for trying different layouts for the Aurora page.</p>
-    </div>
+    <!-- Community Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-header">A Community for Everyone</h2>
+            <p class="section-text"><span class="highlight-yellow">One of Aurora's greatest strengths is its diversity.</span> About 1 in 5 residents were born outside the United States, and the city is home to thriving communities from more than 130 countries, with over 160 languages spoken in schools. Aurora is recognized as a majority-minority city where different backgrounds are celebrated.</p>
+            <p class="section-text">This rich cultural mix is reflected in everything from the more than 250 ethnic eateries representing cuisines from around the world to community events and neighborhood life. The city's cultural scene includes venues like the Aurora Fox Arts Center and the Vintage Theatre offering live performances year-round.</p>
+            <p class="section-text">For newcomers to the United States or anyone looking for a place where diversity is a strength, Aurora offers a genuine sense of belonging.</p>
+        </div>
+    </section>
+
+    <!-- Affordable Living Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="two-column">
+                <div>
+                    <h2 class="section-header">Affordable Living Near Denver</h2>
+                    <p class="section-text">Aurora provides a more affordable alternative to Denver while keeping you close to everything the metro area has to offer. Rental prices in Aurora consistently run lower than in Denver and the surrounding metro area, making it an appealing choice for people who want access to urban amenities without the premium price tag.</p>
+                    <p class="section-text">Whether you're working in Denver, Aurora, or elsewhere in the metro area, <span class="highlight-yellow">Aurora's central location makes commuting manageable.</span> The city is easily accessible via I-225 and the RTD light rail system, with proximity to Denver International Airport and downtown Denver attractions.</p>
+                </div>
+                <div class="image-container" style="background-image: url('aurora-colorado-living-large26.jpg');"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schools Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-header">Strong Schools and Family Resources</h2>
+            <p class="section-text">Aurora is home to some of the highest-rated schools in Colorado, making it an excellent choice for families. <span class="highlight-yellow">Aurora Quest K-8 is the top-rated middle school and second-ranked elementary school in Colorado,</span> while Grandview High School is ranked 22nd among all high schools in the state. Aurora Public Schools is the fifth-largest public school system in Colorado, serving over 40,000 students as one of the most diverse school districts in the state.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">#1</div>
+                    <div class="stat-label">Middle School in Colorado</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">40K+</div>
+                    <div class="stat-label">Students Served</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">34</div>
+                    <div class="stat-label">Colleges Within 50 Miles</div>
+                </div>
+            </div>
+
+            <p class="section-text">The public school system is committed to supporting both students and teachers. Aurora teachers received the highest pay raise in the Denver metro area in 2022, reflecting the district's investment in quality education. College-bound students will find 34 schools within a 50-mile radius.</p>
+        </div>
+    </section>
+
+    <!-- Active Lifestyle Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="two-column">
+                <div class="image-container" style="background-image: url('aurora-colorado-living-large14.jpg');"></div>
+                <div>
+                    <h2 class="section-header">Stay Active Year-Round</h2>
+                    <p class="section-text">Living in Aurora means you're close to the Colorado lifestyle everyone talks about. The mountains are just a short drive away, offering hiking and mountain biking in the warmer months and skiing and snowboarding in the winter.</p>
+                    <p class="section-text"><span class="highlight-yellow">Within the city itself, Aurora manages over 100 parks and more than 5,000 acres of open space.</span> Cherry Creek State Park and the Aurora Reservoir offer miles of trails, picnic areas, boating, and paddleboarding opportunities.</p>
+                    <p class="section-text">Residents can also enjoy six public golf courses, hiking and biking trails, horseback riding, and camping throughout the area. Within Aurora, you'll find rock climbing gyms, cycling facilities, and recreational programs for all ages and skill levels.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Economy Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-header">A Growing Economy</h2>
+            <p class="section-text">Aurora's economy is strong and diverse, with a 3.3% unemployment rate significantly below the 3.7% national average. The city continues to grow, bringing new businesses and jobs across healthcare, education, retail, technology, aerospace, and defense sectors.</p>
+
+            <div class="callout-box">
+                <h3>Major Employers in Aurora</h3>
+                <p>The Anschutz Medical Campus (the region's largest academic medical center), Children's Hospital Colorado, Raytheon Technologies, Lockheed Martin, Boeing, and Northrop Grumman provide thousands of career opportunities.</p>
+            </div>
+
+            <p class="section-text">Healthcare professionals can advance their careers at these world-class facilities, while the city's varied industries provide opportunities for people at different stages of their careers. Whether you're relocating with a job already lined up or searching for new opportunities, <span class="highlight-yellow">Aurora's job market offers strong prospects.</span></p>
+        </div>
+    </section>
+
+    <!-- Why We Love Aurora Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="two-column">
+                <div>
+                    <h2 class="section-header">Why We Love Calling Aurora Home</h2>
+                    <p class="section-text">At SMG Property, we've been part of the Aurora community for over a decade.</p>
+                    <p class="section-text">We've seen families put down roots, watched neighborhoods grow stronger, and experienced firsthand what makes this city special.</p>
+                    <p class="section-text"><span class="highlight-yellow">Aurora offers the perfect blend of urban amenities, natural beauty, a strong job market, excellent schools, and affordable living options.</span></p>
+                    <p class="section-text">If you're considering a move to Aurora, we think you'll find what so many of our residents have found: a place where you can build the life you're working toward.</p>
+                    <p class="section-text">If you're looking for an apartment in Aurora, we'd be happy to help you find one that fits your needs.</p>
+                </div>
+                <div class="image-container" style="background-image: url('aurora-colorado-living-small-6.jpg');"></div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
