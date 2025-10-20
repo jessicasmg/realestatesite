@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Section 8 - SMG Property</title>
+    <title>Section 8 Housing - SMG Property</title>
     <style>
         * {
             margin: 0;
@@ -19,17 +19,17 @@
         }
 
         .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            position: fixed;
+            background: transparent;
+            backdrop-filter: none;
+            position: absolute;
             top: 0;
             width: 100%;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: none;
         }
 
         .nav {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -40,7 +40,7 @@
         .logo {
             font-size: 1.875rem;
             font-weight: 600;
-            color: #1d1d1f;
+            color: white;
             text-decoration: none;
         }
 
@@ -52,7 +52,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #1d1d1f;
+            color: white;
             font-weight: 400;
             transition: color 0.3s ease;
             font-size: 1.25rem;
@@ -60,7 +60,7 @@
 
         .nav-links a:hover,
         .nav-links a.active {
-            color: #007aff;
+            color: #FFDF45;
         }
 
         .cta-button {
@@ -78,17 +78,19 @@
             transform: translateY(-1px);
         }
 
-        .content {
-            max-width: 1200px;
-            margin: 100px auto 50px;
-            padding: 2rem;
-        }
-
-        h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            letter-spacing: -0.02em;
+        @media (max-width: 768px) {
+            div[style*="display: grid"] {
+                grid-template-columns: 1fr !important;
+            }
+            .hero h1 {
+                font-size: 2.5rem !important;
+            }
+            .hero p {
+                font-size: 1.3rem !important;
+            }
+            h2 {
+                font-size: 2.5rem !important;
+            }
         }
     </style>
 </head>
@@ -107,9 +109,320 @@
         </nav>
     </header>
 
-    <main class="content">
-        <h1>Section 8</h1>
-        <!-- Content will go here -->
-    </main>
+    <!-- Hero Section -->
+    <section style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('1592-boston.jpg') center/cover; height: 75vh; display: flex; align-items: center; padding: 0; justify-content: center; text-align: center; color: white;">
+        <div style="max-width: 100%; padding: 4rem 2rem;">
+            <h1 style="font-size: 3.76rem; font-weight: 700; margin-bottom: 1.5rem; letter-spacing: -0.01em; line-height: 1.2em; color: white;">Section 8 Housing in Aurora</h1>
+            <p style="font-size: 1.5rem; margin-bottom: 2rem; color: white; max-width: 900px; margin-left: auto; margin-right: auto;">We proudly welcome Housing Choice Voucher holders. About one-third of our residents use Section 8, and we have over a decade of experience working with the program.</p>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section style="padding: 8rem 0; background: #ffffff;">
+        <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+            <p style="font-size: 1.3rem; line-height: 1.7; margin-bottom: 1.8rem; color: #1d1d1f; text-align: center;"><span style="background: #FFDF45; padding: 0 0.3em; font-weight: 600;">At SMG Property, we believe everyone deserves quality housing, regardless of how they pay for it.</span> We work closely with the Aurora Housing Authority to make the process as smooth as possible for our residents.</p>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://www.aurorahousing.org/" target="_blank" style="display: inline-block; background: #206E2D; color: white; padding: 1rem 2.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.3rem; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">Apply for Section 8</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is Section 8 -->
+    <section style="padding: 8rem 0; background: #f5f5f7;">
+        <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+            <h2 style="font-size: 3.5rem; font-weight: 700; color: #206E2D; margin-bottom: 2rem; letter-spacing: -0.01em;">What is Section 8?</h2>
+            
+            <p style="font-size: 1.3rem; line-height: 1.7; margin-bottom: 1.8rem; color: #1d1d1f;">The Housing Choice Voucher Program, commonly known as Section 8, is a federal program that helps low-income families, elderly persons, veterans, and individuals with disabilities afford safe, quality housing in the private rental market.</p>
+            
+            <p style="font-size: 1.3rem; line-height: 1.7; margin-bottom: 1.8rem; color: #1d1d1f;">The program is funded by the U.S. Department of Housing and Urban Development (HUD) and administered locally by the <a href="https://www.aurorahousing.org/" target="_blank" style="color: #206E2D; text-decoration: underline;">Aurora Housing Authority</a>.</p>
+            
+            <div style="background: #206E2D; color: white; padding: 3rem; border-radius: 16px; margin: 3rem 0;">
+                <h3 style="font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; color: #FFDF45;">How Rent Payment Works</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem;">
+                    <div>
+                        <h4 style="font-size: 1.5rem; font-weight: 600; color: #FFDF45; margin-bottom: 1rem;">Your Portion</h4>
+                        <p style="font-size: 1.3rem; line-height: 1.7;">You typically pay 30-40% of your adjusted monthly income toward rent and utilities.</p>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1.5rem; font-weight: 600; color: #FFDF45; margin-bottom: 1rem;">Housing Authority's Portion</h4>
+                        <p style="font-size: 1.3rem; line-height: 1.7;">The Aurora Housing Authority pays the remaining portion directly to your landlord each month.</p>
+                    </div>
+                </div>
+                <p style="font-size: 1.3rem; line-height: 1.7; margin-top: 2rem; opacity: 0.9;">This partnership between you, the housing authority, and your landlord ensures that rent is paid reliably and on time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Apply -->
+    <section style="padding: 8rem 0; background: #ffffff;">
+        <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+            <h2 style="font-size: 3.5rem; font-weight: 700; color: #206E2D; margin-bottom: 2rem; letter-spacing: -0.01em;">Applying for Section 8 in Aurora</h2>
+            
+            <p style="font-size: 1.3rem; line-height: 1.7; margin-bottom: 1.8rem; color: #1d1d1f;">To apply for a Section 8 voucher in Aurora, you'll need to work with the Aurora Housing Authority. <span style="background: #FFDF45; padding: 0 0.3em; font-weight: 600;">Their waiting list opens and closes periodically based on available funding.</span></p>
+            
+            <div style="background: #FFF9E6; border-left: 4px solid #FFDF45; padding: 2rem; margin: 2rem 0; border-radius: 8px;">
+                <h3 style="font-size: 1.6rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">Waiting List Status</h3>
+                <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f; margin-bottom: 1rem;">The Section 8 waiting list is currently closed. When it reopens, applications must be submitted online through the <a href="https://auroraha.myhousing.com/" target="_blank" style="color: #206E2D; text-decoration: underline;">MyHousing Applicant Portal</a>.</p>
+                <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f;"><strong>Get Notified:</strong> Sign up at <a href="https://www.aurorahousing.org/" target="_blank" style="color: #206E2D; text-decoration: underline;">aurorahousing.org</a> to receive email notifications when the waiting list opens. Announcements are also published in the Aurora Sentinel newspaper.</p>
+            </div>
+            
+            <h3 style="font-size: 2rem; font-weight: 700; color: #206E2D; margin-bottom: 1.5rem; margin-top: 3rem;">Eligibility Requirements</h3>
+            
+            <p style="font-size: 1.3rem; line-height: 1.7; margin-bottom: 1.8rem; color: #1d1d1f;">Eligibility is based on your total annual gross income and family size:</p>
+            
+            <ul style="font-size: 1.3rem; line-height: 2; margin-bottom: 2rem; margin-left: 2rem; color: #1d1d1f;">
+                <li>Must be a U.S. citizen or have eligible immigration status</li>
+                <li>Income must not exceed 50% of area median income (AMI)</li>
+                <li>75% of vouchers go to applicants earning below 30% of AMI</li>
+                <li>Must be 18 years of age or older</li>
+            </ul>
+            
+            <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 6px 24px rgba(0,0,0,0.12); margin: 3rem 0;">
+                <h3 style="font-size: 2rem; font-weight: 700; color: #206E2D; margin-bottom: 2rem; text-align: center;">2025 Income Limits for Arapahoe County</h3>
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: #f5f5f7;">
+                                <th style="padding: 1rem; text-align: left; font-size: 1.1rem; color: #206E2D;">Household Size</th>
+                                <th style="padding: 1rem; text-align: right; font-size: 1.1rem; color: #206E2D;">30% AMI</th>
+                                <th style="padding: 1rem; text-align: right; font-size: 1.1rem; color: #206E2D;">50% AMI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #f5f5f7;">
+                                <td style="padding: 1rem; font-size: 1.2rem;">1 Person</td>
+                                <td style="padding: 1rem; text-align: right; font-size: 1.2rem;">$22,350</td>
+                                <td style="padding: 1rem; text-align: right; font-size: 1.2rem;">$37,250</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #f5f5f7;">
+                                <td style="padding: 1rem; font-size: 1.2rem;">2 People</td>
+                                <td style="padding: 1rem; text-align: right; font-size: 1.2rem;">$25,550</td>
+                                <td style="padding: 1rem; text-align: right; font-size: 1.2rem;">$42,550</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #f5f5f7;">
+                                <td style="padding: 1rem; font-size: 1.2rem;">3 People</td>
+                                <td style="padding: 1rem; text-align: right; font-size: 1.2rem;">$28,750</td>
+                                <td style="padding: 1rem; text-align: right; font-size: 1.2rem;">$47,900</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #f5f5f7;">
+                                <td style="padding: 1rem; font-size: 1.2rem;">4 People</td>
+                                <td style="padding: 1rem; text-align: right; font-size: 1.2rem;">$31,900</td>
+                                <td style="padding: 1rem; text-align: right; font-size: 1.2rem;">$53,200</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #f5f5f7;">
+                                <td style="padding: 1rem; font-size: 1.2rem;">5 People</td>
+                                <td style="padding: 1rem; text-align: right; font-size: 1.2rem;">$34,450</td>
+                                <td style="padding: 1rem; text-align: right; font-size: 1.2rem;">$57,450</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 1rem; font-size: 1.2rem;">6 People</td>
+                                <td style="padding: 1rem; text-align: right; font-size: 1.2rem;">$37,000</td>
+                                <td style="padding: 1rem; text-align: right; font-size: 1.2rem;">$61,700</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Programs -->
+    <section style="padding: 8rem 0; background: #f5f5f7;">
+        <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+            <h2 style="font-size: 3.5rem; font-weight: 700; color: #206E2D; margin-bottom: 2rem; letter-spacing: -0.01em;">Special Voucher Programs</h2>
+            
+            <p style="font-size: 1.3rem; line-height: 1.7; margin-bottom: 3rem; color: #1d1d1f;">Aurora Housing Authority offers several specialized voucher programs in addition to standard Section 8:</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 6px 24px rgba(0,0,0,0.12); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.18)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 24px rgba(0,0,0,0.12)'">
+                    <h3 style="font-size: 1.6rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">VASH Program</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f; margin: 0;">Veterans Affairs Supportive Housing combines rental assistance with case management services for homeless veterans. Referrals come through the VA.</p>
+                </div>
+                
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 6px 24px rgba(0,0,0,0.12); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.18)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 24px rgba(0,0,0,0.12)'">
+                    <h3 style="font-size: 1.6rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">Emergency Housing Vouchers</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f; margin: 0;">Assists individuals fleeing domestic violence or experiencing homelessness. Referrals through Gateway Domestic Violence Services or Metro Denver Homeless Initiative.</p>
+                </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 6px 24px rgba(0,0,0,0.12); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.18)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 24px rgba(0,0,0,0.12)'">
+                    <h3 style="font-size: 1.6rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">Mainstream Vouchers</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f; margin: 0;">For non-elderly persons with disabilities. Additional preference given to those receiving services from partner agencies like Aurora Mental Health.</p>
+                </div>
+                
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 6px 24px rgba(0,0,0,0.12); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.18)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 24px rgba(0,0,0,0.12)'">
+                    <h3 style="font-size: 1.6rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">Family Unification Program</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f; margin: 0;">Helps families where lack of adequate housing is a primary factor in child placement. Referrals through Arapahoe County Human Services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Finding an Apartment -->
+    <section style="padding: 8rem 0; background: #ffffff;">
+        <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+            <h2 style="font-size: 3.5rem; font-weight: 700; color: #206E2D; margin-bottom: 2rem; letter-spacing: -0.01em;">Finding an Apartment With Your Voucher</h2>
+            
+            <p style="font-size: 1.3rem; line-height: 1.7; margin-bottom: 1.8rem; color: #1d1d1f;"><span style="background: #FFDF45; padding: 0 0.3em; font-weight: 600;">Once you receive your voucher, you'll typically have 60 to 120 days to find an apartment.</span> Here are some resources to help with your search:</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin: 3rem 0;">
+                <div style="background: #f5f5f7; padding: 2rem; border-radius: 12px; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🏢</div>
+                    <h3 style="font-size: 1.4rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">Browse Our Units</h3>
+                    <p style="font-size: 1.2rem; line-height: 1.7; color: #1d1d1f; margin-bottom: 1.5rem;">Check our <a href="apartments.html" style="color: #206E2D; text-decoration: underline;">available apartments</a> to see which properties fit your needs.</p>
+                </div>
+                
+                <div style="background: #f5f5f7; padding: 2rem; border-radius: 12px; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🔍</div>
+                    <h3 style="font-size: 1.4rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">Colorado Housing Search</h3>
+                    <p style="font-size: 1.2rem; line-height: 1.7; color: #1d1d1f; margin-bottom: 1.5rem;">This free <a href="https://www.coloradohousingsearch.com/" target="_blank" style="color: #206E2D; text-decoration: underline;">statewide service</a> helps you find rentals that accept vouchers.</p>
+                </div>
+                
+                <div style="background: #f5f5f7; padding: 2rem; border-radius: 12px; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📞</div>
+                    <h3 style="font-size: 1.4rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">Contact Us</h3>
+                    <p style="font-size: 1.2rem; line-height: 1.7; color: #1d1d1f; margin-bottom: 1.5rem;">Let us know you have a voucher and we'll answer questions and schedule showings.</p>
+                </div>
+            </div>
+            
+            <div style="background: #FFDF45; padding: 2.5rem; border-radius: 12px; margin-top: 3rem;">
+                <h3 style="font-size: 1.8rem; font-weight: 700; color: #1d1d1f; margin-bottom: 1.5rem; text-align: center;">Voucher Portability</h3>
+                <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f; text-align: center; margin: 0;">You can use your Aurora Section 8 voucher in other areas, and vouchers from other housing authorities can be used in Aurora. This gives you flexibility in choosing where to live.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Your Rights -->
+    <section style="padding: 8rem 0; background: #f5f5f7;">
+        <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+            <h2 style="font-size: 3.5rem; font-weight: 700; color: #206E2D; margin-bottom: 2rem; letter-spacing: -0.01em;">Your Rights as a Section 8 Tenant</h2>
+            
+            <p style="font-size: 1.3rem; line-height: 1.7; margin-bottom: 2rem; color: #1d1d1f;"><span style="background: #FFDF45; padding: 0 0.3em; font-weight: 600;">As a Section 8 tenant, you have the same rights as any other renter.</span></p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin: 3rem 0;">
+                <div>
+                    <h3 style="font-size: 1.6rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">✓ Safe, Well-Maintained Home</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f;">We're required to address maintenance issues promptly and keep the property in good condition. Units are inspected by the housing authority to ensure quality standards.</p>
+                </div>
+                
+                <div>
+                    <h3 style="font-size: 1.6rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">✓ Privacy & Notice</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f;">You have the right to reasonable notice before any non-emergency inspections. Your home is your private space.</p>
+                </div>
+                
+                <div>
+                    <h3 style="font-size: 1.6rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">✓ Rent Adjustments</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f;">If your income changes, you can request that the housing authority recalculate your rent portion. The program adjusts to your circumstances.</p>
+                </div>
+                
+                <div>
+                    <h3 style="font-size: 1.6rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">✓ Right to Move</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f;">After living in your unit for one year in good standing, you can move to a new apartment and keep your voucher. You'll have 60 days to find a new place.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section style="padding: 8rem 0; background: #ffffff;">
+        <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+            <h2 style="font-size: 3.5rem; font-weight: 700; color: #206E2D; margin-bottom: 3rem; letter-spacing: -0.01em; text-align: center;">Frequently Asked Questions</h2>
+            
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.5rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">Can I move to a new apartment and keep my Section 8?</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f; margin: 0;">Yes! You must be in good standing with your landlord and have lived in your unit for at least one year. Provide 30-days notice to your landlord, and your housing coordinator will issue you a new voucher giving you 60 days to find a new unit.</p>
+                </div>
+                
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.5rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">What if my income changes?</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f; margin: 0;">Contact the Aurora Housing Authority immediately. If your income decreases, your rental portion will decrease and the housing authority's contribution will increase. If your income increases, your portion may go up. The program is designed to adjust to your financial situation.</p>
+                </div>
+                
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.5rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">Does the housing authority pay security deposits?</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f; margin: 0;">No, the Colorado Division of Housing does not pay security deposits. You'll need to arrange the security deposit directly with your landlord.</p>
+                </div>
+                
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.5rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">What happens if I disagree with a housing authority decision?</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f; margin: 0;">All Section 8 applicants, participants, and property owners are entitled to an informal appeal and review process. You have the right to challenge decisions that affect your participation in the program.</p>
+                </div>
+                
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                    <h3 style="font-size: 1.5rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">Can I use my voucher to rent from SMG Property?</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f; margin: 0;">Absolutely! We welcome Section 8 voucher holders and have extensive experience working with the Aurora Housing Authority. Contact us to learn about available units and schedule a showing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources -->
+    <section style="padding: 8rem 0; background: #f5f5f7;">
+        <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+            <h2 style="font-size: 3.5rem; font-weight: 700; color: #206E2D; margin-bottom: 2rem; letter-spacing: -0.01em;">Additional Resources</h2>
+            
+            <p style="font-size: 1.3rem; line-height: 1.7; margin-bottom: 3rem; color: #1d1d1f;">If you need general housing assistance or have questions about other support services available in Aurora:</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+                <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 6px 24px rgba(0,0,0,0.12);">
+                    <h3 style="font-size: 1.6rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">🏛️ Aurora Housing Authority</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f; margin-bottom: 1rem;">Apply for Section 8 vouchers, check waiting list status, and access program information for Aurora residents.</p>
+                    <p style="font-size: 1.2rem; color: #1d1d1f;"><strong>Website:</strong> <a href="https://www.aurorahousing.org/" target="_blank" style="color: #206E2D; text-decoration: underline;">aurorahousing.org</a><br>
+                    <strong>Phone:</strong> (303) 361-1660<br>
+                    <strong>Address:</strong> 1355 Quari Street, Aurora, CO 80011</p>
+                </div>
+                
+                <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 6px 24px rgba(0,0,0,0.12);">
+                    <h3 style="font-size: 1.6rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">📞 211 Colorado</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f; margin-bottom: 1rem;">This free service connects you to community resources including food assistance, shelter, and rent assistance programs.</p>
+                    <p style="font-size: 1.2rem; color: #1d1d1f;"><strong>Call:</strong> 211 or 1-866-760-6489<br>
+                    <strong>Website:</strong> <a href="https://www.211colorado.org/" target="_blank" style="color: #206E2D; text-decoration: underline;">211colorado.org</a></p>
+                </div>
+                
+                <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 6px 24px rgba(0,0,0,0.12);">
+                    <h3 style="font-size: 1.6rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">🏠 HUD Housing Choice Voucher Program</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f; margin-bottom: 1rem;">For general information about the Section 8 program nationwide.</p>
+                    <p style="font-size: 1.2rem; color: #1d1d1f;"><strong>Website:</strong> <a href="https://www.hud.gov/topics/housing_choice_voucher_program_section_8" target="_blank" style="color: #206E2D; text-decoration: underline;">hud.gov/section8</a></p>
+                </div>
+                
+                <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 6px 24px rgba(0,0,0,0.12);">
+                    <h3 style="font-size: 1.6rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">🏘️ One Home (Coordinated Entry)</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f; margin-bottom: 1rem;">If you're currently homeless or at risk, One Home can connect you to housing services including Emergency Housing Vouchers.</p>
+                    <p style="font-size: 1.2rem; color: #1d1d1f;"><strong>Email:</strong> <a href="mailto:contact@onehomeco.org" style="color: #206E2D; text-decoration: underline;">contact@onehomeco.org</a><br>
+                    <strong>Website:</strong> <a href="https://www.onehomeco.org/" target="_blank" style="color: #206E2D; text-decoration: underline;">onehomeco.org</a></p>
+                </div>
+                
+                <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 6px 24px rgba(0,0,0,0.12);">
+                    <h3 style="font-size: 1.6rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">🆘 Gateway Domestic Violence Services</h3>
+                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f; margin-bottom: 1rem;">For those fleeing domestic violence, Gateway provides referrals for Emergency Housing Vouchers and other support services.</p>
+                    <p style="font-size: 1.2rem; color: #1d1d1f;"><strong>24-Hour Crisis Line:</strong> (303) 343-1851<br>
+                    <strong>Website:</strong> <a href="https://www.gwdv.org/" target="_blank" style="color: #206E2D; text-decoration: underline;">gwdv.org</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="padding: 8rem 0; background: #206E2D; text-align: center;">
+        <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+            <h2 style="font-size: 3.5rem; font-weight: 700; color: #FFDF45; margin-bottom: 2rem; letter-spacing: -0.01em;">Ready to Find Your Home?</h2>
+            
+            <p style="font-size: 1.3rem; line-height: 1.7; margin-bottom: 2rem; color: #ffffff; max-width: 800px; margin-left: auto; margin-right: auto;">At SMG Property, we proudly welcome Section 8 voucher holders. With over a decade of experience working with the Aurora Housing Authority, we're here to make your housing search as smooth as possible.</p>
+            
+            <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 3rem;">
+                <a href="apartments.html" style="display: inline-block; background: #FFDF45; color: #1d1d1f; padding: 1rem 2.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.3rem; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">View Available Apartments</a>
+                
+                <a href="contact.html" style="display: inline-block; background: transparent; color: white; padding: 1rem 2.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.3rem; border: 2px solid white; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.style.transform='scale(1.05)'" onmouseout="this.style.background='transparent'; this.style.transform='scale(1)'">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: #1d1d1f; color: white; text-align: center; padding: 2rem;">
+        <p style="margin-bottom: 0.5rem; opacity: 0.8;">&copy; 2025 SMG Property. All rights reserved.</p>
+        <p style="opacity: 0.8;">Aurora, Colorado</p>
+    </footer>
 </body>
 </html>
