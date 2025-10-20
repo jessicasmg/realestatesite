@@ -19,13 +19,12 @@
         }
 
         .header {
-            background: transparent;
-            backdrop-filter: none;
-            position: absolute;
+            background: #ffffff;
+            position: sticky;
             top: 0;
             width: 100%;
             z-index: 1000;
-            border-bottom: none;
+            border-bottom: 1px solid #e0e0e0;
         }
 
         .nav {
@@ -40,7 +39,7 @@
         .logo {
             font-size: 1.875rem;
             font-weight: 600;
-            color: white;
+            color: #206E2D;
             text-decoration: none;
         }
 
@@ -52,7 +51,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: white;
+            color: #1d1d1f;
             font-weight: 400;
             transition: color 0.3s ease;
             font-size: 1.25rem;
@@ -60,7 +59,7 @@
 
         .nav-links a:hover,
         .nav-links a.active {
-            color: #FFDF45;
+            color: #206E2D;
         }
 
         .cta-button {
@@ -82,12 +81,6 @@
             div[style*="display: grid"] {
                 grid-template-columns: 1fr !important;
             }
-            .hero h1 {
-                font-size: 2.5rem !important;
-            }
-            h2 {
-                font-size: 2.5rem !important;
-            }
         }
     </style>
 </head>
@@ -106,113 +99,121 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('1451-macon.jpg') center/cover; height: 75vh; display: flex; align-items: center; padding: 0; justify-content: center; text-align: center; color: white;">
-        <div style="max-width: 100%; padding: 4rem 2rem;">
-            <h1 style="font-size: 3.76rem; font-weight: 700; margin-bottom: 1.5rem; letter-spacing: -0.01em; line-height: 1.2em; color: white;">Get in Touch</h1>
-            <p style="font-size: 1.5rem; margin-bottom: 0; color: white; max-width: 800px; margin-left: auto; margin-right: auto;">We're here to answer your questions and help you find your next home in Aurora.</p>
-        </div>
-    </section>
-
-    <!-- Contact Info Section -->
-    <section style="padding: 8rem 0; background: #ffffff;">
-        <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-bottom: 4rem;">
-                <div style="text-align: center; padding: 2rem;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">📍</div>
-                    <h3 style="font-size: 1.6rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">Visit Us</h3>
-                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f;">1592 Boston St. Suite #107<br>Aurora, CO 80010</p>
+    <!-- Main Contact Section -->
+    <section style="padding: 5rem 2rem; background: #ffffff;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h1 style="font-size: 3.5rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem; letter-spacing: -0.01em;">Contact Us</h1>
+            <p style="font-size: 1.3rem; color: #1d1d1f; margin-bottom: 4rem;">We're here to answer your questions and help you find your next home in Aurora.</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: start;">
+                <!-- Contact Info Column -->
+                <div>
+                    <h2 style="font-size: 2rem; font-weight: 700; color: #206E2D; margin-bottom: 2rem;">Get in Touch</h2>
+                    
+                    <div style="margin-bottom: 2.5rem;">
+                        <div style="display: flex; align-items: start; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="font-size: 1.5rem;">📍</span>
+                            <div>
+                                <h3 style="font-size: 1.3rem; font-weight: 600; color: #206E2D; margin-bottom: 0.3rem;">Office Address</h3>
+                                <p style="font-size: 1.1rem; line-height: 1.7; color: #1d1d1f;">1592 Boston St. Suite #107<br>Aurora, CO 80010</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 2.5rem;">
+                        <div style="display: flex; align-items: start; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="font-size: 1.5rem;">📞</span>
+                            <div>
+                                <h3 style="font-size: 1.3rem; font-weight: 600; color: #206E2D; margin-bottom: 0.3rem;">Phone</h3>
+                                <p style="font-size: 1.1rem; line-height: 1.7; color: #1d1d1f;"><a href="tel:3038001605" style="color: #206E2D; text-decoration: none;">303.800.1605</a></p>
+                                <p style="font-size: 1rem; color: #86868b; margin-top: 0.3rem;">Monday - Friday: 9:00 AM - 5:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 2.5rem;">
+                        <div style="display: flex; align-items: start; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="font-size: 1.5rem;">✉️</span>
+                            <div>
+                                <h3 style="font-size: 1.3rem; font-weight: 600; color: #206E2D; margin-bottom: 0.3rem;">Email</h3>
+                                <p style="font-size: 1.1rem; line-height: 1.7; color: #1d1d1f;"><a href="mailto:info@smgproperty.com" style="color: #206E2D; text-decoration: none;">info@smgproperty.com</a></p>
+                                <p style="font-size: 1rem; color: #86868b; margin-top: 0.3rem;">We respond within 24 hours</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: #FFF9E6; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #FFDF45;">
+                        <p style="font-size: 1.1rem; line-height: 1.6; color: #1d1d1f;"><strong>Current Residents:</strong> For maintenance requests, please use the <a href="https://smgprop.appfolio.com/connect/users/sign_in" target="_blank" style="color: #206E2D; text-decoration: underline;">Tenant Portal</a> or call for emergencies.</p>
+                    </div>
                 </div>
                 
-                <div style="text-align: center; padding: 2rem;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">📞</div>
-                    <h3 style="font-size: 1.6rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">Call Us</h3>
-                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f;"><a href="tel:3038001605" style="color: #206E2D; text-decoration: none;">303.800.1605</a></p>
-                    <p style="font-size: 1.1rem; line-height: 1.7; color: #86868b; margin-top: 0.5rem;">Monday - Friday<br>9:00 AM - 5:00 PM</p>
-                </div>
-                
-                <div style="text-align: center; padding: 2rem;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">✉️</div>
-                    <h3 style="font-size: 1.6rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">Email Us</h3>
-                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f;"><a href="mailto:info@smgproperty.com" style="color: #206E2D; text-decoration: none;">info@smgproperty.com</a></p>
-                    <p style="font-size: 1.1rem; line-height: 1.7; color: #86868b; margin-top: 0.5rem;">We respond within 24 hours</p>
+                <!-- Contact Form Column -->
+                <div>
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="background: #f5f5f7; padding: 2.5rem; border-radius: 12px;">
+                        <h2 style="font-size: 2rem; font-weight: 700; color: #206E2D; margin-bottom: 1.5rem;">Send Us a Message</h2>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <label for="name" style="display: block; font-size: 1.1rem; font-weight: 600; color: #1d1d1f; margin-bottom: 0.5rem;">Name *</label>
+                            <input type="text" id="name" name="name" required style="width: 100%; padding: 0.9rem; font-size: 1.1rem; border: 2px solid #e0e0e0; border-radius: 8px; font-family: inherit; background: white; transition: border-color 0.3s ease;" onfocus="this.style.borderColor='#206E2D'" onblur="this.style.borderColor='#e0e0e0'">
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <label for="email" style="display: block; font-size: 1.1rem; font-weight: 600; color: #1d1d1f; margin-bottom: 0.5rem;">Email *</label>
+                            <input type="email" id="email" name="email" required style="width: 100%; padding: 0.9rem; font-size: 1.1rem; border: 2px solid #e0e0e0; border-radius: 8px; font-family: inherit; background: white; transition: border-color 0.3s ease;" onfocus="this.style.borderColor='#206E2D'" onblur="this.style.borderColor='#e0e0e0'">
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <label for="phone" style="display: block; font-size: 1.1rem; font-weight: 600; color: #1d1d1f; margin-bottom: 0.5rem;">Phone</label>
+                            <input type="tel" id="phone" name="phone" style="width: 100%; padding: 0.9rem; font-size: 1.1rem; border: 2px solid #e0e0e0; border-radius: 8px; font-family: inherit; background: white; transition: border-color 0.3s ease;" onfocus="this.style.borderColor='#206E2D'" onblur="this.style.borderColor='#e0e0e0'">
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <label for="subject" style="display: block; font-size: 1.1rem; font-weight: 600; color: #1d1d1f; margin-bottom: 0.5rem;">Subject *</label>
+                            <select id="subject" name="subject" required style="width: 100%; padding: 0.9rem; font-size: 1.1rem; border: 2px solid #e0e0e0; border-radius: 8px; font-family: inherit; background: white; transition: border-color 0.3s ease;" onfocus="this.style.borderColor='#206E2D'" onblur="this.style.borderColor='#e0e0e0'">
+                                <option value="">Select a topic...</option>
+                                <option value="apartment-inquiry">Apartment Inquiry</option>
+                                <option value="section8">Section 8 Housing</option>
+                                <option value="maintenance">Maintenance Request</option>
+                                <option value="application">Application Question</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <label for="message" style="display: block; font-size: 1.1rem; font-weight: 600; color: #1d1d1f; margin-bottom: 0.5rem;">Message *</label>
+                            <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 0.9rem; font-size: 1.1rem; border: 2px solid #e0e0e0; border-radius: 8px; font-family: inherit; background: white; resize: vertical; transition: border-color 0.3s ease;" onfocus="this.style.borderColor='#206E2D'" onblur="this.style.borderColor='#e0e0e0'"></textarea>
+                        </div>
+                        
+                        <button type="submit" style="width: 100%; background: #206E2D; color: white; padding: 1rem; font-size: 1.2rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; font-family: inherit;" onmouseover="this.style.background='#1a5723'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)'" onmouseout="this.style.background='#206E2D'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Form Section -->
-    <section style="padding: 8rem 0; background: #f5f5f7;">
-        <div style="max-width: 900px; margin: 0 auto; padding: 0 2rem;">
-            <h2 style="font-size: 3.5rem; font-weight: 700; color: #206E2D; margin-bottom: 2rem; letter-spacing: -0.01em; text-align: center;">Send Us a Message</h2>
-            
-            <p style="font-size: 1.3rem; line-height: 1.7; margin-bottom: 3rem; color: #1d1d1f; text-align: center;">Fill out the form below and we'll get back to you as soon as possible.</p>
-            
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="background: white; padding: 3rem; border-radius: 16px; box-shadow: 0 6px 24px rgba(0,0,0,0.12);">
-                <div style="margin-bottom: 2rem;">
-                    <label for="name" style="display: block; font-size: 1.2rem; font-weight: 600; color: #206E2D; margin-bottom: 0.5rem;">Name *</label>
-                    <input type="text" id="name" name="name" required style="width: 100%; padding: 1rem; font-size: 1.1rem; border: 2px solid #e0e0e0; border-radius: 8px; font-family: inherit; transition: border-color 0.3s ease;" onfocus="this.style.borderColor='#206E2D'" onblur="this.style.borderColor='#e0e0e0'">
+    <!-- Quick Links Section -->
+    <section style="padding: 4rem 2rem; background: #f5f5f7;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                    <h3 style="font-size: 1.8rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">Current Residents</h3>
+                    <p style="font-size: 1.2rem; line-height: 1.7; color: #1d1d1f; margin-bottom: 1.5rem;">Access your tenant portal to pay rent, submit maintenance requests, and manage your account.</p>
+                    <a href="https://smgprop.appfolio.com/connect/users/sign_in" target="_blank" style="display: inline-block; background: #206E2D; color: white; padding: 0.8rem 1.8rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease;" onmouseover="this.style.background='#1a5723'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#206E2D'; this.style.transform='translateY(0)'">Tenant Portal</a>
                 </div>
                 
-                <div style="margin-bottom: 2rem;">
-                    <label for="email" style="display: block; font-size: 1.2rem; font-weight: 600; color: #206E2D; margin-bottom: 0.5rem;">Email *</label>
-                    <input type="email" id="email" name="email" required style="width: 100%; padding: 1rem; font-size: 1.1rem; border: 2px solid #e0e0e0; border-radius: 8px; font-family: inherit; transition: border-color 0.3s ease;" onfocus="this.style.borderColor='#206E2D'" onblur="this.style.borderColor='#e0e0e0'">
-                </div>
-                
-                <div style="margin-bottom: 2rem;">
-                    <label for="phone" style="display: block; font-size: 1.2rem; font-weight: 600; color: #206E2D; margin-bottom: 0.5rem;">Phone</label>
-                    <input type="tel" id="phone" name="phone" style="width: 100%; padding: 1rem; font-size: 1.1rem; border: 2px solid #e0e0e0; border-radius: 8px; font-family: inherit; transition: border-color 0.3s ease;" onfocus="this.style.borderColor='#206E2D'" onblur="this.style.borderColor='#e0e0e0'">
-                </div>
-                
-                <div style="margin-bottom: 2rem;">
-                    <label for="subject" style="display: block; font-size: 1.2rem; font-weight: 600; color: #206E2D; margin-bottom: 0.5rem;">Subject *</label>
-                    <select id="subject" name="subject" required style="width: 100%; padding: 1rem; font-size: 1.1rem; border: 2px solid #e0e0e0; border-radius: 8px; font-family: inherit; transition: border-color 0.3s ease;" onfocus="this.style.borderColor='#206E2D'" onblur="this.style.borderColor='#e0e0e0'">
-                        <option value="">Select a topic...</option>
-                        <option value="apartment-inquiry">Apartment Inquiry</option>
-                        <option value="section8">Section 8 Housing</option>
-                        <option value="maintenance">Maintenance Request</option>
-                        <option value="application">Application Question</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                
-                <div style="margin-bottom: 2rem;">
-                    <label for="message" style="display: block; font-size: 1.2rem; font-weight: 600; color: #206E2D; margin-bottom: 0.5rem;">Message *</label>
-                    <textarea id="message" name="message" rows="6" required style="width: 100%; padding: 1rem; font-size: 1.1rem; border: 2px solid #e0e0e0; border-radius: 8px; font-family: inherit; resize: vertical; transition: border-color 0.3s ease;" onfocus="this.style.borderColor='#206E2D'" onblur="this.style.borderColor='#e0e0e0'"></textarea>
-                </div>
-                
-                <button type="submit" style="width: 100%; background: #206E2D; color: white; padding: 1.2rem; font-size: 1.3rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; font-family: inherit;" onmouseover="this.style.background='#1a5723'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.2)'" onmouseout="this.style.background='#206E2D'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">Send Message</button>
-            </form>
-            
-            <p style="font-size: 1.1rem; color: #86868b; text-align: center; margin-top: 2rem;">For maintenance emergencies, please call us directly at <a href="tel:3038001605" style="color: #206E2D; text-decoration: underline;">303.800.1605</a></p>
-        </div>
-    </section>
-
-    <!-- Additional Info Section -->
-    <section style="padding: 8rem 0; background: #ffffff;">
-        <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
-            <h2 style="font-size: 3.5rem; font-weight: 700; color: #206E2D; margin-bottom: 3rem; letter-spacing: -0.01em; text-align: center;">Other Ways to Connect</h2>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
-                <div style="background: #f5f5f7; padding: 3rem; border-radius: 16px;">
-                    <h3 style="font-size: 2rem; font-weight: 700; color: #206E2D; margin-bottom: 1.5rem;">Current Residents</h3>
-                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f; margin-bottom: 2rem;">Access your tenant portal to pay rent, submit maintenance requests, and manage your account.</p>
-                    <a href="https://smgprop.appfolio.com/connect/users/sign_in" target="_blank" style="display: inline-block; background: #206E2D; color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.2rem; transition: all 0.3s ease;" onmouseover="this.style.background='#1a5723'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#206E2D'; this.style.transform='translateY(0)'">Go to Tenant Portal</a>
-                </div>
-                
-                <div style="background: #f5f5f7; padding: 3rem; border-radius: 16px;">
-                    <h3 style="font-size: 2rem; font-weight: 700; color: #206E2D; margin-bottom: 1.5rem;">Prospective Residents</h3>
-                    <p style="font-size: 1.3rem; line-height: 1.7; color: #1d1d1f; margin-bottom: 2rem;">Browse our available apartments and learn more about what we offer in Aurora.</p>
-                    <a href="apartments.html" style="display: inline-block; background: #206E2D; color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.2rem; transition: all 0.3s ease;" onmouseover="this.style.background='#1a5723'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#206E2D'; this.style.transform='translateY(0)'">View Apartments</a>
+                <div style="background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                    <h3 style="font-size: 1.8rem; font-weight: 700; color: #206E2D; margin-bottom: 1rem;">Prospective Residents</h3>
+                    <p style="font-size: 1.2rem; line-height: 1.7; color: #1d1d1f; margin-bottom: 1.5rem;">Browse our available apartments and learn more about what we offer in Aurora.</p>
+                    <a href="apartments.html" style="display: inline-block; background: #206E2D; color: white; padding: 0.8rem 1.8rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease;" onmouseover="this.style.background='#1a5723'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#206E2D'; this.style.transform='translateY(0)'">View Apartments</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Map Section (Placeholder) -->
-    <section style="padding: 0; background: #f5f5f7;">
-        <div style="width: 100%; height: 450px; background: #e0e0e0; position: relative; overflow: hidden;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3067.892076539826!2d-104.83684492346095!3d39.73036009636743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c63f3e91e1c4d%3A0x7c3d0e3e5e3e3e3e!2s1592%20Boston%20St%2C%20Aurora%2C%20CO%2080010!5e0!3m2!1sen!2sus!4v1234567890" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <!-- Map Section -->
+    <section style="padding: 0; background: #ffffff;">
+        <div style="width: 100%; height: 400px; background: #e0e0e0; position: relative; overflow: hidden;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3067.892076539826!2d-104.83684492346095!3d39.73036009636743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c63f3e91e1c4d%3A0x7c3d0e3e5e3e3e3e!2s1592%20Boston%20St%2C%20Aurora%2C%20CO%2080010!5e0!3m2!1sen!2sus!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
