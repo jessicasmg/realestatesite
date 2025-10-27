@@ -82,6 +82,122 @@
             transform: translateY(-1px);
         }
 
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1998;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: 100%;
+            background: white;
+            z-index: 1999;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #1d1d1f;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            padding: 1rem 0;
+        }
+
+        .mobile-menu-links li {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .mobile-menu-links a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: #1d1d1f;
+            text-decoration: none;
+            font-size: 1.125rem;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .mobile-menu-links a:hover,
+        .mobile-menu-links a.active {
+            background: #f5f5f7;
+            color: #206E2D;
+        }
+
+        .mobile-menu-cta {
+            padding: 1.5rem;
+        }
+
+        .mobile-menu-cta a {
+            display: block;
+            background: #206E2D;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            min-height: 44px;
+            line-height: 1.5;
+        }
+
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
@@ -686,18 +802,159 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
+
+        /* Tablet (768px - 1023px) */
+        @media (max-width: 1023px) {
+            .properties-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        /* Mobile & Tablet (Below 768px) */
+        @media (max-width: 767px) {
+            /* Navigation */
+            .nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
             .nav-links {
                 display: none;
             }
 
+            .cta-button {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .mobile-menu,
+            .mobile-menu-overlay {
+                display: block;
+            }
+
+            /* Hero Section */
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 8rem 1.5rem 4rem;
+            }
+
+            .hero-content {
+                padding: 2rem 0;
+            }
+
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.25rem;
+                margin-bottom: 1.5rem;
+                line-height: 1.2;
+            }
+
+            .hero p {
+                font-size: 1.125rem;
+                margin-bottom: 2.5rem;
+                line-height: 1.6;
             }
 
             .hero-buttons {
                 flex-direction: column;
-                align-items: center;
+                align-items: stretch;
+                gap: 1rem;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                padding: 1rem 1.5rem;
+                font-size: 1.125rem;
+                min-height: 48px;
+            }
+
+            /* Features Section */
+            .features {
+                padding: 3rem 1.5rem;
+            }
+
+            .container {
+                padding: 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .section-subtitle {
+                font-size: 1.125rem;
+                margin-bottom: 2rem;
+                line-height: 1.6;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+
+            .feature-card h3 {
+                font-size: 1.5rem;
+            }
+
+            .feature-card p {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            /* Properties Section */
+            .properties {
+                padding: 3rem 1.5rem;
+            }
+
+            .properties-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-top: 2rem;
+            }
+
+            .property-card {
+                border-radius: 12px;
+            }
+
+            .property-price {
+                font-size: 1.5rem;
+            }
+
+            .property-title {
+                font-size: 1.125rem;
+            }
+
+            .property-features {
+                flex-wrap: wrap;
+                gap: 0.75rem;
+            }
+
+            .property-feature {
+                font-size: 0.875rem;
+                padding: 0.4rem 0.75rem;
+            }
+
+            /* About Section */
+            .about {
+                padding: 3rem 1.5rem;
             }
 
             .about-content {
@@ -705,43 +962,157 @@
                 gap: 2rem;
             }
 
+            .about-text h2 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .about-text p {
+                font-size: 1.0625rem;
+                line-height: 1.6;
+                margin-bottom: 1rem;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            /* Contact Section */
+            .contact {
+                padding: 3rem 1.5rem;
+            }
+
             .contact-card {
                 grid-template-columns: 1fr;
                 box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+                margin-top: 2rem;
             }
 
             .contact-info {
                 border-right: none;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-                padding: 2rem;
+                padding: 1.5rem;
             }
 
             .contact-form {
-                padding: 2rem;
+                padding: 1.5rem;
             }
 
             .contact-info h3,
             .contact-form h3 {
-                font-size: 1.875rem;
-                margin-bottom: 1.5rem;
+                font-size: 1.5rem;
+                margin-bottom: 1.25rem;
             }
 
             .form-row {
                 grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .form-group {
+                margin-bottom: 1.25rem;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                font-size: 1rem;
+                padding: 0.75rem;
+            }
+
+            .form-submit {
+                padding: 0.875rem 1.5rem;
+                font-size: 1rem;
+                min-height: 48px;
             }
 
             .contact-icon {
                 width: 40px;
                 height: 40px;
-                font-size: 1.25rem;
+                font-size: 1.125rem;
             }
 
             .contact-item {
-                margin-bottom: 1.5rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .contact-details h4 {
+                font-size: 1.125rem;
+            }
+
+            .contact-details p {
+                font-size: 0.9375rem;
+            }
+
+            /* Footer */
+            .footer {
+                padding: 2.5rem 1.5rem 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .footer-section h4 {
+                font-size: 1.125rem;
+            }
+
+            .footer-section a,
+            .footer-section p {
+                font-size: 1rem;
+            }
+
+            /* Modals */
+            .modal-content {
+                max-width: 95vw;
+                max-height: 95vh;
+            }
+
+            .map-modal-content {
+                width: 95vw;
+            }
+
+            #mapFrame {
+                height: 350px;
+            }
+
+            /* Prevent horizontal scroll */
+            body {
+                overflow-x: hidden;
+            }
+
+            .hero,
+            .features,
+            .properties,
+            .about,
+            .contact,
+            .footer {
+                overflow-x: hidden;
+            }
+        }
+
+        /* Small Mobile (Below 480px) */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.875rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 1.75rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                font-size: 1rem;
+                padding: 0.875rem 1.25rem;
             }
         }
     </style>
@@ -759,8 +1130,37 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <a href="https://smgprop.appfolio.com/connect/users/sign_in" class="cta-button" target="_blank">Tenant Portal</a>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo" style="color: #1d1d1f;">SMG Property</a>
+            <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
+        </div>
+        <ul class="mobile-menu-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="apartments.html">Apartments</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="aurora.html">Aurora</a></li>
+            <li><a href="section8.html">Section 8</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="mobile-menu-cta">
+            <a href="https://smgprop.appfolio.com/connect/users/sign_in" target="_blank">Tenant Portal</a>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -1179,6 +1579,49 @@
                 loadingState.innerHTML = '<p>Error loading properties. Please refresh the page.</p>';
             }
         }
+
+        // Mobile Menu Functionality
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-links a');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', openMobileMenu);
+        }
+
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+        }
+
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        }
+
+        // Close menu when a link is clicked
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
     </script>
 </body>
 </html>
