@@ -77,18 +77,212 @@
             transform: translateY(-1px);
         }
 
-        @media (max-width: 768px) {
+        /* Mobile Responsive Design - Hybrid Approach
+           Using !important to override inline font-sizes is necessary
+           because inline styles have highest specificity. This targets
+           only font-size while preserving other inline styles. */
+
+        /* Tablet (768px - 1023px) */
+        @media (max-width: 1023px) {
+            /* Grid adjustments for tablets */
+            div[style*="display: grid"] {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 2rem !important;
+            }
+        }
+
+        /* Mobile & Small Tablet (Below 768px) */
+        @media (max-width: 767px) {
+            /* Navigation */
+            .nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .cta-button {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .mobile-menu,
+            .mobile-menu-overlay {
+                display: block;
+            }
+
+            /* Typography - Override inline font-sizes for mobile */
+            section h1[style*="font-size"] {
+                font-size: 2rem !important;
+                line-height: 1.2 !important;
+            }
+
+            section h2[style*="font-size"] {
+                font-size: 1.75rem !important;
+                line-height: 1.3 !important;
+            }
+
+            section h3[style*="font-size"] {
+                font-size: 1.25rem !important;
+                line-height: 1.4 !important;
+            }
+
+            section h4[style*="font-size"] {
+                font-size: 1.125rem !important;
+            }
+
+            section p[style*="font-size"],
+            section li[style*="font-size"] {
+                font-size: 1rem !important;
+                line-height: 1.6 !important;
+            }
+
+            /* Hero section special handling */
+            section[style*="padding: 4rem"] {
+                padding: 3rem 1.5rem !important;
+            }
+
+            /* Large statistics/numbers (the 4.5rem ones) */
+            div[style*="font-size: 4.5rem"],
+            div[style*="font-size: 4rem"] {
+                font-size: 2.5rem !important;
+            }
+
+            /* Badge/label text */
+            p[style*="font-size: 1rem"][style*="text-transform: uppercase"] {
+                font-size: 0.875rem !important;
+            }
+
+            /* Layout - Grid collapse */
             div[style*="display: grid"] {
                 grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
             }
-            .hero h1 {
-                font-size: 2.5rem !important;
+
+            section[style*="display: grid"] {
+                grid-template-columns: 1fr !important;
             }
-            .hero p {
-                font-size: 1.3rem !important;
+
+            /* Padding adjustments for sections */
+            section[style*="padding: 5rem"],
+            section[style*="padding: 6rem"] {
+                padding: 3rem 1.5rem !important;
             }
-            h2 {
-                font-size: 2.5rem !important;
+
+            /* Table responsiveness */
+            table {
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                font-size: 0.875rem !important;
+            }
+
+            table th[style*="font-size"],
+            table td[style*="font-size"] {
+                font-size: 0.875rem !important;
+                padding: 0.75rem !important;
+            }
+
+            /* Buttons and CTAs */
+            a[style*="padding"][style*="border-radius"] {
+                padding: 0.875rem 1.5rem !important;
+                font-size: 1rem !important;
+                min-height: 44px;
+                display: inline-block;
+            }
+
+            /* Info boxes/cards */
+            div[style*="background: white"][style*="border-radius"] {
+                padding: 1.5rem !important;
+            }
+
+            div[style*="background: #206E2D"][style*="padding"] {
+                padding: 2rem 1.5rem !important;
+            }
+
+            /* Lists - better mobile spacing */
+            ul[style*="font-size"] li {
+                font-size: 1rem !important;
+                line-height: 1.8 !important;
+                margin-bottom: 0.75rem;
+            }
+
+            /* FAQ/Accordion sections */
+            div[style*="border-bottom"][style*="padding: 2rem"] {
+                padding: 1.5rem !important;
+            }
+
+            /* Icon sizing */
+            div[style*="font-size: 3rem"],
+            span[style*="font-size: 3rem"] {
+                font-size: 2rem !important;
+            }
+
+            /* Prevent horizontal scroll */
+            body {
+                overflow-x: hidden;
+            }
+
+            section,
+            div {
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+
+            /* Images and background images */
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* Footer adjustments */
+            footer div[style*="display: grid"] {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+
+            footer h3[style*="font-size"] {
+                font-size: 1.25rem !important;
+            }
+
+            footer p[style*="font-size"],
+            footer a[style*="font-size"] {
+                font-size: 1rem !important;
+            }
+        }
+
+        /* Small Mobile (Below 480px) - Extra refinement */
+        @media (max-width: 480px) {
+            section h1[style*="font-size"] {
+                font-size: 1.75rem !important;
+            }
+
+            section h2[style*="font-size"] {
+                font-size: 1.5rem !important;
+            }
+
+            div[style*="font-size: 4.5rem"],
+            div[style*="font-size: 4rem"] {
+                font-size: 2rem !important;
+            }
+
+            section[style*="padding: 4rem"],
+            section[style*="padding: 5rem"],
+            section[style*="padding: 6rem"] {
+                padding: 2rem 1rem !important;
+            }
+
+            a[style*="padding"][style*="border-radius"] {
+                padding: 0.75rem 1.25rem !important;
+                font-size: 0.9375rem !important;
             }
         }
     </style>
