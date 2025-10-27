@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - SMG Property</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1d1d1f;
+            background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ea 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            background: #ffffff;
+            width: 100%;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.875rem;
+            font-weight: 600;
+            color: #206E2D;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        /* Main Container */
+        .main-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        /* Login Form Container */
+        .login-container {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            max-width: 450px;
+            width: 100%;
+        }
+
+        /* Heading with Green Accent Bar */
+        .login-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .accent-bar {
+            width: 4px;
+            height: 40px;
+            background: #206E2D;
+            margin-right: 15px;
+        }
+
+        .login-container h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #206E2D;
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+
+        /* Form Styles */
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #1d1d1f;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1.5px solid #e5e5e7;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+            color: #1d1d1f;
+        }
+
+        .form-group input:hover {
+            border-color: #c5c5c7;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #206E2D;
+            box-shadow: 0 0 0 3px rgba(32, 110, 45, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: #86868b;
+        }
+
+        /* Error Message */
+        .error-message {
+            display: none;
+            background: #ffebee;
+            border: 1px solid #ef5350;
+            color: #c62828;
+            padding: 0.875rem 1rem;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Login Button */
+        .login-button {
+            background: #206E2D;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .login-button:hover:not(:disabled) {
+            background: #1a5723;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(32, 110, 45, 0.3);
+        }
+
+        .login-button:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        .login-button:disabled {
+            background: #86868b;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Loading State */
+        .login-button.loading::after {
+            content: '';
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            margin-left: 10px;
+            border: 2px solid #ffffff;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .login-container {
+                padding: 2rem;
+            }
+
+            .login-container h1 {
+                font-size: 1.75rem;
+            }
+
+            .main-container {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 1.5rem;
+            }
+
+            .accent-bar {
+                height: 30px;
+            }
+
+            .login-container h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="logo">SMG Property</a>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <div class="login-container">
+            <!-- Login Header with Accent Bar -->
+            <div class="login-header">
+                <div class="accent-bar"></div>
+                <h1>Admin Login</h1>
+            </div>
+
+            <!-- Error Message (Hidden by Default) -->
+            <div id="errorMessage" class="error-message"></div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="admin@smgproperty.com"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" id="loginButton" class="login-button">
+                    Login
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Supabase JavaScript Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Supabase Configuration -->
+    <script src="supabase-config.js"></script>
+
+    <!-- Login Functionality -->
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const loginButton = document.getElementById('loginButton');
+        const errorMessage = document.getElementById('errorMessage');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+
+        // Hide error message when user starts typing
+        emailInput.addEventListener('input', hideError);
+        passwordInput.addEventListener('input', hideError);
+
+        function hideError() {
+            errorMessage.classList.remove('show');
+        }
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.classList.add('show');
+        }
+
+        function setLoading(isLoading) {
+            loginButton.disabled = isLoading;
+            if (isLoading) {
+                loginButton.classList.add('loading');
+                loginButton.textContent = 'Signing in';
+            } else {
+                loginButton.classList.remove('loading');
+                loginButton.textContent = 'Login';
+            }
+        }
+
+        // Handle form submission
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Hide any existing error messages
+            hideError();
+
+            // Get form values
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+
+            // Validate inputs
+            if (!email || !password) {
+                showError('Please enter both email and password.');
+                return;
+            }
+
+            // Set loading state
+            setLoading(true);
+
+            try {
+                // Attempt to sign in with Supabase
+                const { data, error } = await supabase.auth.signInWithPassword({
+                    email: email,
+                    password: password
+                });
+
+                if (error) {
+                    throw error;
+                }
+
+                // Successfully logged in
+                console.log('Login successful:', data);
+
+                // Redirect to admin dashboard
+                window.location.href = 'admin-dashboard.html';
+
+            } catch (error) {
+                // Handle authentication errors
+                console.error('Login error:', error);
+
+                let errorMsg = 'An error occurred during login. Please try again.';
+
+                if (error.message.includes('Invalid login credentials')) {
+                    errorMsg = 'Invalid email or password. Please try again.';
+                } else if (error.message.includes('Email not confirmed')) {
+                    errorMsg = 'Please confirm your email address before logging in.';
+                } else if (error.message) {
+                    errorMsg = error.message;
+                }
+
+                showError(errorMsg);
+                setLoading(false);
+            }
+        });
+    </script>
+</body>
+</html>

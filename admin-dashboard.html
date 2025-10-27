@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - SMG Property</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1d1d1f;
+            background: #f5f5f7;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.875rem;
+            font-weight: 600;
+            color: #206E2D;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        .header-title {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .header-title h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #206E2D;
+            letter-spacing: -0.01em;
+        }
+
+        .logout-button {
+            background: #dc3545;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .logout-button:hover {
+            background: #c82333;
+            transform: translateY(-1px);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Action Bar */
+        .action-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .add-listing-button {
+            background: #206E2D;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .add-listing-button:hover {
+            background: #1a5723;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(32, 110, 45, 0.3);
+        }
+
+        .add-listing-button::before {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* Loading & Empty States */
+        .loading-state,
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #86868b;
+        }
+
+        .loading-state {
+            font-size: 1.2rem;
+        }
+
+        .empty-state {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .empty-state h2 {
+            color: #1d1d1f;
+            margin-bottom: 1rem;
+        }
+
+        /* Listings Grid */
+        .listings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Listing Card */
+        .listing-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .listing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .listing-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #e0e0e0 25%, #f5f5f7 25%, #f5f5f7 50%, #e0e0e0 50%, #e0e0e0 75%, #f5f5f7 75%, #f5f5f7);
+            background-size: 20px 20px;
+        }
+
+        .listing-content {
+            padding: 1.5rem;
+        }
+
+        .listing-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .listing-address {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 0.5rem;
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-badge.published {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-badge.unpublished {
+            background: #e0e0e0;
+            color: #6c757d;
+        }
+
+        .listing-details {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1d1d1f;
+            font-size: 1rem;
+        }
+
+        .listing-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .listing-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+
+        .btn-edit {
+            background: #007bff;
+            color: white;
+        }
+
+        .btn-edit:hover {
+            background: #0056b3;
+        }
+
+        .btn-delete {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background: #c82333;
+        }
+
+        .btn-toggle {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-toggle:hover {
+            background: #5a6268;
+        }
+
+        .btn-toggle.published {
+            background: #28a745;
+        }
+
+        .btn-toggle.published:hover {
+            background: #218838;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease;
+            position: relative;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #206E2D;
+            letter-spacing: -0.01em;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            font-size: 2rem;
+            color: #86868b;
+            cursor: pointer;
+            padding: 0;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: #f5f5f7;
+            color: #1d1d1f;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #1d1d1f;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1.5px solid #e5e5e7;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+            color: #1d1d1f;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group input:hover,
+        .form-group select:hover,
+        .form-group textarea:hover {
+            border-color: #c5c5c7;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #206E2D;
+            box-shadow: 0 0 0 3px rgba(32, 110, 45, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            cursor: pointer;
+        }
+
+        /* Image Preview */
+        .image-preview-container {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .image-preview-item {
+            position: relative;
+            width: 120px;
+            cursor: grab;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .image-preview-item:active {
+            cursor: grabbing;
+        }
+
+        .image-preview-item.dragging {
+            opacity: 0.5;
+            transform: scale(1.05);
+            cursor: grabbing;
+        }
+
+        .image-preview-item.drag-over {
+            transform: translateX(10px);
+        }
+
+        .image-preview {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #e5e5e7;
+            display: block;
+            pointer-events: none;
+        }
+
+        .image-number {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .featured-badge-img {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background: #FFDF45;
+            color: #1d1d1f;
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+        }
+
+        .image-remove {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .image-remove:hover {
+            background: #c82333;
+            transform: scale(1.1);
+        }
+
+        .drag-hint {
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .image-preview-item:hover .drag-hint {
+            opacity: 1;
+        }
+
+        .existing-images-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .existing-images-label {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #1d1d1f;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Modal Actions */
+        .modal-actions {
+            padding: 1.5rem 2rem;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        .btn-primary {
+            background: #206E2D;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: #1a5723;
+            transform: translateY(-1px);
+        }
+
+        .btn-primary:disabled {
+            background: #86868b;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header-title {
+                justify-content: flex-start;
+            }
+
+            .listings-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="logo">SMG Property</a>
+        <div class="header-title">
+            <h1>Admin Dashboard</h1>
+        </div>
+        <button id="logoutButton" class="logout-button">Logout</button>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Action Bar -->
+        <div class="action-bar">
+            <button id="addListingButton" class="add-listing-button">Add New Listing</button>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loadingState" class="loading-state">
+            Loading listings...
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="empty-state" style="display: none;">
+            <h2>No Listings Yet</h2>
+            <p>Click "Add New Listing" to create your first apartment listing.</p>
+        </div>
+
+        <!-- Listings Grid -->
+        <div id="listingsGrid" class="listings-grid" style="display: none;">
+            <!-- Listings will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <!-- Add/Edit Listing Modal -->
+    <div id="listingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add New Listing</h2>
+                <button id="modalClose" class="modal-close">&times;</button>
+            </div>
+
+            <form id="listingForm">
+                <div class="modal-body">
+                    <input type="hidden" id="listingId" name="listingId">
+
+                    <div class="form-group">
+                        <label for="address">Address *</label>
+                        <input type="text" id="address" name="address" required placeholder="1234 Main St, Aurora, CO 80010">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="rent">Monthly Rent ($) *</label>
+                            <input type="number" id="rent" name="rent" required min="0" placeholder="1200">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="squareFeet">Square Feet</label>
+                            <input type="number" id="squareFeet" name="squareFeet" min="0" placeholder="850">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="bedrooms">Bedrooms *</label>
+                            <input type="number" id="bedrooms" name="bedrooms" required min="0" placeholder="2">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bathrooms">Bathrooms *</label>
+                            <input type="number" id="bathrooms" name="bathrooms" required min="0" step="0.5" placeholder="1.5">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="availabilityDate">Available Date</label>
+                        <input type="date" id="availabilityDate" name="availabilityDate">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="petPolicy">Pet Policy</label>
+                        <select id="petPolicy" name="petPolicy">
+                            <option value="">Select pet policy</option>
+                            <option value="No Pets">No Pets</option>
+                            <option value="Cats Only">Cats Only</option>
+                            <option value="Dogs Only">Dogs Only</option>
+                            <option value="Cats and Dogs Allowed">Cats and Dogs Allowed</option>
+                            <option value="Case by Case">Case by Case</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="amenities">Amenities</label>
+                        <textarea id="amenities" name="amenities" placeholder="List amenities (e.g., washer/dryer, parking, balcony)"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description *</label>
+                        <textarea id="description" name="description" required placeholder="Describe the apartment..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <div id="existingImagesSection" class="existing-images-section" style="display: none;">
+                            <span class="existing-images-label">Current Images (Drag to reorder, first image is featured)</span>
+                            <div id="existingImagesContainer" class="image-preview-container"></div>
+                        </div>
+
+                        <label for="images">Add Images (up to 5 total, drag to reorder)</label>
+                        <input type="file" id="images" name="images" multiple accept="image/jpeg,image/jpg,image/png,image/webp">
+                        <div id="newImagesContainer" class="image-preview-container"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="isFeatured" name="isFeatured">
+                            <label for="isFeatured">Featured Listing</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="isPublished" name="isPublished" checked>
+                            <label for="isPublished">Published (visible on website)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" id="cancelButton" class="btn-secondary">Cancel</button>
+                    <button type="submit" id="saveButton" class="btn-primary">Save Listing</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Supabase JavaScript Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Supabase Configuration -->
+    <script src="supabase-config.js"></script>
+
+    <!-- Dashboard Functionality -->
+    <script>
+        let currentListings = [];
+        let editingListingId = null;
+        let existingImages = [];
+        let newImageFiles = [];
+        let newImagePreviews = [];
+
+        // Check authentication on page load
+        async function checkAuth() {
+            const { data: { session } } = await supabase.auth.getSession();
+
+            if (!session) {
+                // Not logged in, redirect to login page
+                window.location.href = 'admin-login.html';
+                return false;
+            }
+
+            return true;
+        }
+
+        // Logout functionality
+        document.getElementById('logoutButton').addEventListener('click', async () => {
+            await supabase.auth.signOut();
+            window.location.href = 'index.html';
+        });
+
+        // Load all listings
+        async function loadListings() {
+            const loadingState = document.getElementById('loadingState');
+            const emptyState = document.getElementById('emptyState');
+            const listingsGrid = document.getElementById('listingsGrid');
+
+            try {
+                loadingState.style.display = 'block';
+                emptyState.style.display = 'none';
+                listingsGrid.style.display = 'none';
+
+                const { data, error } = await supabase
+                    .from('apartments')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+
+                if (error) throw error;
+
+                currentListings = data || [];
+
+                loadingState.style.display = 'none';
+
+                if (currentListings.length === 0) {
+                    emptyState.style.display = 'block';
+                } else {
+                    listingsGrid.style.display = 'grid';
+                    renderListings();
+                }
+
+            } catch (error) {
+                console.error('Error loading listings:', error);
+                loadingState.textContent = 'Error loading listings. Please refresh the page.';
+            }
+        }
+
+        // Render listings in grid
+        function renderListings() {
+            const listingsGrid = document.getElementById('listingsGrid');
+            listingsGrid.innerHTML = '';
+
+            currentListings.forEach(listing => {
+                const card = createListingCard(listing);
+                listingsGrid.appendChild(card);
+            });
+        }
+
+        // Create listing card element
+        function createListingCard(listing) {
+            const card = document.createElement('div');
+            card.className = 'listing-card';
+
+            const imageUrl = listing.images && listing.images.length > 0
+                ? listing.images[0]
+                : '';
+
+            const statusClass = listing.is_published ? 'published' : 'unpublished';
+            const statusText = listing.is_published ? 'Published' : 'Unpublished';
+            const toggleText = listing.is_published ? 'Unpublish' : 'Publish';
+
+            // Escape address for use in onclick attribute
+            const escapedAddress = listing.address.replace(/'/g, "\\'");
+
+            card.innerHTML = `
+                ${imageUrl ? `<img src="${imageUrl}" alt="${listing.address}" class="listing-image">` : '<div class="listing-image"></div>'}
+                <div class="listing-content">
+                    <div class="listing-header">
+                        <div>
+                            <div class="listing-address">${listing.address}</div>
+                        </div>
+                        <span class="status-badge ${statusClass}">${statusText}</span>
+                    </div>
+                    <div class="listing-details">
+                        <div class="listing-detail">💵 $${listing.monthly_rent}/mo</div>
+                        <div class="listing-detail">🛏️ ${listing.bedrooms} bed</div>
+                        <div class="listing-detail">🚿 ${listing.bathrooms} bath</div>
+                    </div>
+                    <div class="listing-actions">
+                        <button class="btn btn-edit" data-listing-id="${listing.id}">Edit</button>
+                        <button class="btn btn-delete" data-listing-id="${listing.id}" data-address="${listing.address}">Delete</button>
+                        <button class="btn btn-toggle ${statusClass}" data-listing-id="${listing.id}" data-published="${listing.is_published}">${toggleText}</button>
+                    </div>
+                </div>
+            `;
+
+            // Add event listeners to buttons
+            const editBtn = card.querySelector('.btn-edit');
+            const deleteBtn = card.querySelector('.btn-delete');
+            const toggleBtn = card.querySelector('.btn-toggle');
+
+            editBtn.addEventListener('click', () => {
+                window.editListing(listing.id);
+            });
+
+            deleteBtn.addEventListener('click', () => {
+                window.deleteListing(listing.id, listing.address);
+            });
+
+            toggleBtn.addEventListener('click', () => {
+                window.togglePublish(listing.id, listing.is_published);
+            });
+
+            return card;
+        }
+
+        // Modal functionality
+        const modal = document.getElementById('listingModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const listingForm = document.getElementById('listingForm');
+        const modalClose = document.getElementById('modalClose');
+        const cancelButton = document.getElementById('cancelButton');
+        const addListingButton = document.getElementById('addListingButton');
+
+        addListingButton.addEventListener('click', () => {
+            openModal();
+        });
+
+        modalClose.addEventListener('click', closeModal);
+        cancelButton.addEventListener('click', closeModal);
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        function openModal(listing = null) {
+            editingListingId = listing ? listing.id : null;
+            modalTitle.textContent = listing ? 'Edit Listing' : 'Add New Listing';
+
+            // Update save button text
+            const saveButton = document.getElementById('saveButton');
+            saveButton.textContent = listing ? 'Update Listing' : 'Save Listing';
+
+            // Reset image arrays
+            existingImages = [];
+            newImageFiles = [];
+            newImagePreviews = [];
+
+            if (listing) {
+                // Populate form with existing data
+                document.getElementById('listingId').value = listing.id;
+                document.getElementById('address').value = listing.address || '';
+                document.getElementById('rent').value = listing.monthly_rent || '';
+                document.getElementById('squareFeet').value = listing.square_feet || '';
+                document.getElementById('bedrooms').value = listing.bedrooms || '';
+                document.getElementById('bathrooms').value = listing.bathrooms || '';
+                document.getElementById('availabilityDate').value = listing.availability_date || '';
+                document.getElementById('petPolicy').value = listing.pet_policy || '';
+                document.getElementById('amenities').value = listing.amenities || '';
+                document.getElementById('description').value = listing.description || '';
+                document.getElementById('isFeatured').checked = listing.is_featured || false;
+                document.getElementById('isPublished').checked = listing.is_published || false;
+
+                // Load existing images
+                if (listing.images && listing.images.length > 0) {
+                    existingImages = [...listing.images];
+                    renderExistingImages();
+                } else {
+                    document.getElementById('existingImagesSection').style.display = 'none';
+                }
+            } else {
+                // Reset form
+                listingForm.reset();
+                document.getElementById('isPublished').checked = true;
+                document.getElementById('existingImagesSection').style.display = 'none';
+            }
+
+            // Clear file input and preview
+            document.getElementById('images').value = '';
+            document.getElementById('newImagesContainer').innerHTML = '';
+
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            editingListingId = null;
+            existingImages = [];
+            newImageFiles = [];
+            newImagePreviews = [];
+            listingForm.reset();
+            document.getElementById('images').value = '';
+            document.getElementById('existingImagesSection').style.display = 'none';
+            document.getElementById('existingImagesContainer').innerHTML = '';
+            document.getElementById('newImagesContainer').innerHTML = '';
+        }
+
+        // Render existing images (when editing)
+        function renderExistingImages() {
+            const container = document.getElementById('existingImagesContainer');
+            container.innerHTML = '';
+
+            if (existingImages.length === 0) {
+                document.getElementById('existingImagesSection').style.display = 'none';
+                return;
+            }
+
+            document.getElementById('existingImagesSection').style.display = 'block';
+
+            existingImages.forEach((imageUrl, index) => {
+                const item = createImagePreviewItem(imageUrl, index, true);
+                container.appendChild(item);
+            });
+        }
+
+        // Render new images being uploaded
+        function renderNewImages() {
+            const container = document.getElementById('newImagesContainer');
+            container.innerHTML = '';
+
+            newImagePreviews.forEach((preview, index) => {
+                const item = createImagePreviewItem(preview.url, index, false);
+                container.appendChild(item);
+            });
+        }
+
+        // Create image preview item with drag-and-drop
+        function createImagePreviewItem(imageUrl, index, isExisting) {
+            const totalImages = existingImages.length + newImagePreviews.length;
+            const actualIndex = isExisting ? index : existingImages.length + index;
+
+            const item = document.createElement('div');
+            item.className = 'image-preview-item';
+            item.draggable = true;
+            item.dataset.index = actualIndex;
+            item.dataset.isExisting = isExisting;
+            item.dataset.localIndex = index;
+
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            img.className = 'image-preview';
+
+            // Number badge or Featured badge for first image
+            if (actualIndex === 0) {
+                const badge = document.createElement('div');
+                badge.className = 'featured-badge-img';
+                badge.textContent = 'Featured';
+                item.appendChild(badge);
+            } else {
+                const number = document.createElement('div');
+                number.className = 'image-number';
+                number.textContent = actualIndex + 1;
+                item.appendChild(number);
+            }
+
+            // Remove button
+            const removeBtn = document.createElement('button');
+            removeBtn.className = 'image-remove';
+            removeBtn.innerHTML = '×';
+            removeBtn.type = 'button';
+            removeBtn.onclick = (e) => {
+                e.stopPropagation();
+                if (isExisting) {
+                    existingImages.splice(index, 1);
+                    renderExistingImages();
+                } else {
+                    newImagePreviews.splice(index, 1);
+                    newImageFiles.splice(index, 1);
+                    renderNewImages();
+                }
+            };
+
+            // Drag hint
+            const dragHint = document.createElement('div');
+            dragHint.className = 'drag-hint';
+            dragHint.textContent = 'Drag to reorder';
+
+            // Drag event listeners
+            item.addEventListener('dragstart', handleDragStart);
+            item.addEventListener('dragend', handleDragEnd);
+            item.addEventListener('dragover', handleDragOver);
+            item.addEventListener('drop', handleDrop);
+            item.addEventListener('dragenter', handleDragEnter);
+            item.addEventListener('dragleave', handleDragLeave);
+
+            item.appendChild(img);
+            item.appendChild(removeBtn);
+            item.appendChild(dragHint);
+
+            return item;
+        }
+
+        // Drag and drop handlers
+        let draggedElement = null;
+        let draggedFromExisting = false;
+        let draggedLocalIndex = -1;
+
+        function handleDragStart(e) {
+            draggedElement = e.target;
+            draggedFromExisting = e.target.dataset.isExisting === 'true';
+            draggedLocalIndex = parseInt(e.target.dataset.localIndex);
+
+            e.target.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/html', e.target.innerHTML);
+        }
+
+        function handleDragEnd(e) {
+            e.target.classList.remove('dragging');
+
+            // Remove drag-over class from all items
+            document.querySelectorAll('.image-preview-item').forEach(item => {
+                item.classList.remove('drag-over');
+            });
+
+            draggedElement = null;
+        }
+
+        function handleDragOver(e) {
+            if (e.preventDefault) {
+                e.preventDefault();
+            }
+            e.dataTransfer.dropEffect = 'move';
+            return false;
+        }
+
+        function handleDragEnter(e) {
+            if (e.target.classList.contains('image-preview-item') && e.target !== draggedElement) {
+                e.target.classList.add('drag-over');
+            }
+        }
+
+        function handleDragLeave(e) {
+            if (e.target.classList.contains('image-preview-item')) {
+                e.target.classList.remove('drag-over');
+            }
+        }
+
+        function handleDrop(e) {
+            if (e.stopPropagation) {
+                e.stopPropagation();
+            }
+            e.preventDefault();
+
+            const dropTarget = e.target.closest('.image-preview-item');
+            if (!dropTarget || dropTarget === draggedElement) {
+                return false;
+            }
+
+            const dropIsExisting = dropTarget.dataset.isExisting === 'true';
+            const dropLocalIndex = parseInt(dropTarget.dataset.localIndex);
+            const dropActualIndex = parseInt(dropTarget.dataset.index);
+            const dragActualIndex = parseInt(draggedElement.dataset.index);
+
+            // Combine all images into one array for reordering
+            const allImages = [];
+            const allFiles = [];
+
+            existingImages.forEach((url, idx) => {
+                allImages.push({ url, isExisting: true, originalIndex: idx });
+                allFiles.push(null);
+            });
+
+            newImagePreviews.forEach((preview, idx) => {
+                allImages.push({ url: preview.url, isExisting: false, originalIndex: idx });
+                allFiles.push(newImageFiles[idx]);
+            });
+
+            // Move the dragged item
+            const draggedItem = allImages.splice(dragActualIndex, 1)[0];
+            const draggedFile = allFiles.splice(dragActualIndex, 1)[0];
+
+            allImages.splice(dropActualIndex, 0, draggedItem);
+            allFiles.splice(dropActualIndex, 0, draggedFile);
+
+            // Split back into existing and new arrays
+            existingImages = [];
+            newImagePreviews = [];
+            newImageFiles = [];
+
+            allImages.forEach((item, idx) => {
+                if (item.isExisting && !allFiles[idx]) {
+                    existingImages.push(item.url);
+                } else {
+                    newImagePreviews.push({ url: item.url });
+                    newImageFiles.push(allFiles[idx]);
+                }
+            });
+
+            // Re-render both sections
+            renderExistingImages();
+            renderNewImages();
+
+            return false;
+        }
+
+        // Handle new image selection - ADD to existing instead of replace
+        document.getElementById('images').addEventListener('change', (e) => {
+            const files = Array.from(e.target.files);
+            const currentTotal = existingImages.length + newImagePreviews.length;
+            const availableSlots = 5 - currentTotal;
+
+            if (availableSlots <= 0) {
+                alert('Maximum 5 images allowed. Please remove some images first.');
+                e.target.value = '';
+                return;
+            }
+
+            const filesToAdd = files.slice(0, availableSlots);
+
+            if (files.length > availableSlots) {
+                alert(`Only ${availableSlots} more image(s) can be added (maximum 5 total).`);
+            }
+
+            // Add files to array
+            newImageFiles.push(...filesToAdd);
+
+            // Create previews for new files
+            filesToAdd.forEach(file => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    newImagePreviews.push({
+                        url: e.target.result,
+                        file: file
+                    });
+                    renderNewImages();
+                };
+                reader.readAsDataURL(file);
+            });
+
+            // Clear the file input so same file can be selected again
+            e.target.value = '';
+        });
+
+        // Form submission
+        listingForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const saveButton = document.getElementById('saveButton');
+            const originalButtonText = saveButton.textContent;
+            saveButton.disabled = true;
+            saveButton.textContent = 'Saving...';
+
+            try {
+                // Collect form data
+                const formData = {
+                    address: document.getElementById('address').value,
+                    monthly_rent: parseFloat(document.getElementById('rent').value),
+                    square_feet: document.getElementById('squareFeet').value ? parseInt(document.getElementById('squareFeet').value) : null,
+                    bedrooms: parseInt(document.getElementById('bedrooms').value),
+                    bathrooms: parseFloat(document.getElementById('bathrooms').value),
+                    availability_date: document.getElementById('availabilityDate').value || null,
+                    pet_policy: document.getElementById('petPolicy').value || null,
+                    amenities: document.getElementById('amenities').value || null,
+                    description: document.getElementById('description').value,
+                    is_featured: document.getElementById('isFeatured').checked,
+                    is_published: document.getElementById('isPublished').checked,
+                    images: []
+                };
+
+                // Combine existing images and upload new ones
+                const finalImages = [...existingImages];
+
+                // Upload new image files if any
+                if (newImageFiles.length > 0) {
+                    const uploadedUrls = await uploadImages(newImageFiles);
+                    finalImages.push(...uploadedUrls);
+                }
+
+                formData.images = finalImages;
+
+                // Insert or update listing
+                if (editingListingId) {
+                    const { error } = await supabase
+                        .from('apartments')
+                        .update(formData)
+                        .eq('id', editingListingId);
+
+                    if (error) throw error;
+                } else {
+                    const { error } = await supabase
+                        .from('apartments')
+                        .insert([formData]);
+
+                    if (error) throw error;
+                }
+
+                // Reload listings and close modal
+                await loadListings();
+                closeModal();
+                alert(editingListingId ? 'Listing updated successfully!' : 'Listing added successfully!');
+
+            } catch (error) {
+                console.error('Error saving listing:', error);
+                alert('Error saving listing: ' + error.message);
+            } finally {
+                saveButton.disabled = false;
+                saveButton.textContent = originalButtonText;
+            }
+        });
+
+        // Upload images to Supabase storage
+        async function uploadImages(files) {
+            const uploadedUrls = [];
+
+            for (let i = 0; i < Math.min(files.length, 5); i++) {
+                const file = files[i];
+                const fileExt = file.name.split('.').pop();
+                const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
+
+                const { data, error } = await supabase.storage
+                    .from('apartment-images')
+                    .upload(fileName, file);
+
+                if (error) {
+                    console.error('Error uploading image:', error);
+                    continue;
+                }
+
+                // Get public URL
+                const { data: urlData } = supabase.storage
+                    .from('apartment-images')
+                    .getPublicUrl(fileName);
+
+                uploadedUrls.push(urlData.publicUrl);
+            }
+
+            return uploadedUrls;
+        }
+
+        // Edit listing
+        window.editListing = function(listingId) {
+            console.log('Edit listing clicked:', listingId);
+            const listing = currentListings.find(l => l.id === listingId);
+            if (listing) {
+                console.log('Found listing:', listing);
+                openModal(listing);
+            } else {
+                console.error('Listing not found:', listingId);
+                alert('Listing not found. Please refresh the page and try again.');
+            }
+        };
+
+        // Delete listing
+        window.deleteListing = async function(listingId, address) {
+            if (!confirm(`Are you sure you want to delete the listing for "${address}"?`)) {
+                return;
+            }
+
+            try {
+                const { error } = await supabase
+                    .from('apartments')
+                    .delete()
+                    .eq('id', listingId);
+
+                if (error) throw error;
+
+                await loadListings();
+                alert('Listing deleted successfully!');
+
+            } catch (error) {
+                console.error('Error deleting listing:', error);
+                alert('Error deleting listing: ' + error.message);
+            }
+        };
+
+        // Toggle publish status
+        window.togglePublish = async function(listingId, currentStatus) {
+            try {
+                const { error } = await supabase
+                    .from('apartments')
+                    .update({ is_published: !currentStatus })
+                    .eq('id', listingId);
+
+                if (error) throw error;
+
+                await loadListings();
+
+            } catch (error) {
+                console.error('Error toggling publish status:', error);
+                alert('Error updating status: ' + error.message);
+            }
+        };
+
+        // Initialize dashboard
+        async function init() {
+            const isAuthenticated = await checkAuth();
+            if (isAuthenticated) {
+                await loadListings();
+            }
+        }
+
+        init();
+    </script>
+</body>
+</html>
