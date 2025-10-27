@@ -357,6 +357,8 @@
             /* How Rent Payment Works section - compact mobile version */
             div[style*="background: linear-gradient(135deg, #206E2D"][style*="padding: 3rem"] {
                 padding: 1.75rem 1.25rem !important;
+                margin-top: 2rem !important;
+                margin-bottom: 2rem !important;
             }
 
             div[style*="background: linear-gradient(135deg, #206E2D"] h3[style*="margin-bottom: 2.5rem"] {
@@ -364,9 +366,15 @@
                 margin-bottom: 1.25rem !important;
             }
 
+            /* Grid containing the steps - reduce gap between cards */
+            div[style*="background: linear-gradient(135deg, #206E2D"] > div[style*="display: grid"][style*="gap: 2rem"] {
+                gap: 0.875rem !important;
+                margin-bottom: 1.25rem !important;
+            }
+
             /* Step cards - make more compact */
             div[style*="background: rgba(255,255,255,0.1)"][style*="padding: 2rem"] {
-                padding: 1.25rem !important;
+                padding: 1.125rem !important;
             }
 
             /* Step number circles - ensure perfect circles and smaller size */
@@ -389,10 +397,12 @@
                 font-size: 1.2rem !important;
             }
 
-            /* Step descriptions - smaller text */
+            /* Step descriptions - smaller text with better flow */
             div[style*="background: rgba(255,255,255,0.1)"] p[style*="font-size: 1.3rem"] {
                 font-size: 0.9375rem !important;
                 line-height: 1.5 !important;
+                word-spacing: -0.05em !important;
+                hyphens: auto !important;
             }
 
             /* Plus sign between steps */
@@ -403,7 +413,7 @@
             /* Bottom note box */
             div[style*="background: rgba(255,223,69,0.15)"][style*="padding: 1.5rem"] {
                 padding: 1rem !important;
-                margin-top: 1rem !important;
+                margin-top: 0.75rem !important;
             }
 
             div[style*="background: rgba(255,223,69,0.15)"] p[style*="font-size: 1.2rem"] {
@@ -507,10 +517,18 @@
             /* How Rent Payment Works - even more compact for small mobile */
             div[style*="background: linear-gradient(135deg, #206E2D"][style*="padding: 3rem"] {
                 padding: 1.5rem 1rem !important;
+                margin-top: 1.5rem !important;
+                margin-bottom: 1.5rem !important;
             }
 
             div[style*="background: linear-gradient(135deg, #206E2D"] h3[style*="margin-bottom: 2.5rem"] {
                 font-size: 1.375rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            /* Tighter gap between step cards */
+            div[style*="background: linear-gradient(135deg, #206E2D"] > div[style*="display: grid"][style*="gap: 2rem"] {
+                gap: 0.75rem !important;
                 margin-bottom: 1rem !important;
             }
 
@@ -537,6 +555,8 @@
 
             div[style*="background: rgba(255,255,255,0.1)"] p[style*="font-size: 1.3rem"] {
                 font-size: 0.875rem !important;
+                word-spacing: -0.05em !important;
+                hyphens: auto !important;
             }
 
             div[style*="background: linear-gradient(135deg, #206E2D"] > div[style*="display: grid"] > div[style*="text-align: center"] span {
@@ -545,6 +565,7 @@
 
             div[style*="background: rgba(255,223,69,0.15)"][style*="padding: 1.5rem"] {
                 padding: 0.875rem !important;
+                margin-top: 0.625rem !important;
             }
 
             div[style*="background: rgba(255,223,69,0.15)"] p[style*="font-size: 1.2rem"] {
