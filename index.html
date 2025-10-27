@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     <title>SMG Property - Safe & Affordable Living in Aurora, Colorado</title>
     <style>
         * {
@@ -112,11 +112,15 @@
             background: rgba(0, 0, 0, 0.5);
             z-index: 1998;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
         .mobile-menu-overlay.active {
             opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
         }
 
         .mobile-menu {
@@ -1168,7 +1172,7 @@
             <h1>Safe & Affordable Living in <span style="color: #FFDF45;">Aurora, Colorado</span></h1>
             <p>Studios through 4-bedroom apartments with Section 8 accepted, multiple payment options, and a team dedicated to serving Aurora's diverse community.</p>
             <div class="hero-buttons">
-                <a href="properties.html" class="btn-primary">VIEW PROPERTIES</a>
+                <a href="apartments.html" class="btn-primary">VIEW PROPERTIES</a>
             </div>
         </div>
     </section>
