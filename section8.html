@@ -355,10 +355,15 @@
             }
 
             /* How Rent Payment Works section - compact mobile version */
+
+            /* FIX #2: Balance top/bottom spacing - reduce paragraph margin before green box */
+            section p[style*="margin-bottom: 1.8rem"] + div[style*="background: linear-gradient(135deg, #206E2D"] {
+                margin-top: 1.5rem !important;
+            }
+
             div[style*="background: linear-gradient(135deg, #206E2D"][style*="padding: 3rem"] {
                 padding: 1.75rem 1.25rem !important;
-                margin-top: 2rem !important;
-                margin-bottom: 2rem !important;
+                margin-bottom: 2.5rem !important;
             }
 
             div[style*="background: linear-gradient(135deg, #206E2D"] h3[style*="margin-bottom: 2.5rem"] {
@@ -372,9 +377,10 @@
                 margin-bottom: 1.25rem !important;
             }
 
-            /* Step cards - make more compact */
+            /* FIX #1: More horizontal space for better text flow */
+            /* Step cards - reduce padding to allow more text width */
             div[style*="background: rgba(255,255,255,0.1)"][style*="padding: 2rem"] {
-                padding: 1.125rem !important;
+                padding: 1rem 0.875rem !important;
             }
 
             /* Step number circles - ensure perfect circles and smaller size */
@@ -397,12 +403,12 @@
                 font-size: 1.2rem !important;
             }
 
-            /* Step descriptions - smaller text with better flow */
+            /* FIX #1: Smaller font and better word spacing for natural text flow */
+            /* Step descriptions - slightly smaller with optimized spacing */
             div[style*="background: rgba(255,255,255,0.1)"] p[style*="font-size: 1.3rem"] {
-                font-size: 0.9375rem !important;
+                font-size: 0.875rem !important;
                 line-height: 1.5 !important;
-                word-spacing: -0.05em !important;
-                hyphens: auto !important;
+                word-spacing: -0.03em !important;
             }
 
             /* Plus sign between steps */
@@ -515,10 +521,15 @@
             }
 
             /* How Rent Payment Works - even more compact for small mobile */
+
+            /* FIX #2: Balance spacing for small mobile */
+            section p[style*="margin-bottom: 1.8rem"] + div[style*="background: linear-gradient(135deg, #206E2D"] {
+                margin-top: 1.25rem !important;
+            }
+
             div[style*="background: linear-gradient(135deg, #206E2D"][style*="padding: 3rem"] {
                 padding: 1.5rem 1rem !important;
-                margin-top: 1.5rem !important;
-                margin-bottom: 1.5rem !important;
+                margin-bottom: 2rem !important;
             }
 
             div[style*="background: linear-gradient(135deg, #206E2D"] h3[style*="margin-bottom: 2.5rem"] {
@@ -532,8 +543,9 @@
                 margin-bottom: 1rem !important;
             }
 
+            /* FIX #1: Even less padding for more text width on small screens */
             div[style*="background: rgba(255,255,255,0.1)"][style*="padding: 2rem"] {
-                padding: 1rem !important;
+                padding: 0.875rem 0.75rem !important;
             }
 
             div[style*="background: rgba(255,255,255,0.1)"] span[style*="background: #FFDF45"][style*="border-radius: 50%"] {
@@ -553,10 +565,10 @@
                 font-size: 1.125rem !important;
             }
 
+            /* FIX #1: Keep smaller font for better text flow */
             div[style*="background: rgba(255,255,255,0.1)"] p[style*="font-size: 1.3rem"] {
-                font-size: 0.875rem !important;
-                word-spacing: -0.05em !important;
-                hyphens: auto !important;
+                font-size: 0.8125rem !important;
+                word-spacing: -0.03em !important;
             }
 
             div[style*="background: linear-gradient(135deg, #206E2D"] > div[style*="display: grid"] > div[style*="text-align: center"] span {
