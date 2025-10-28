@@ -852,7 +852,8 @@
             .hero {
                 height: auto;
                 min-height: 100vh;
-                padding: 8rem 1.5rem 4rem;
+                padding: 4rem 1.5rem;
+                align-items: center !important;
             }
 
             .hero-content {
@@ -866,20 +867,22 @@
             }
 
             .hero p {
-                font-size: 1.125rem;
+                font-size: 1.25rem;
                 margin-bottom: 2.5rem;
                 line-height: 1.6;
+                font-weight: 600;
             }
 
             .hero-buttons {
                 flex-direction: column;
-                align-items: stretch;
+                align-items: center;
                 gap: 1rem;
             }
 
             .btn-primary,
             .btn-secondary {
-                width: 100%;
+                width: 67%;
+                max-width: 280px;
                 padding: 1rem 1.5rem;
                 font-size: 1.125rem;
                 min-height: 48px;
